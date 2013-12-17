@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: doxygen class
+# key: ///
+# --
+/// @class $1

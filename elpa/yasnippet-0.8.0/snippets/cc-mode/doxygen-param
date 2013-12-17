@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: doxygen param
+# key: /@p
+# --
+/// @param $1 — $2

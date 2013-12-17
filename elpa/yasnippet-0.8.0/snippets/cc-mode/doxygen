@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: doxygen
+# key: ///
+# --
+/// $1
