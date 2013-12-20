@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "gray10" :foreground "gray90" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "monofur"))))
- '(bm-face ((t (:background "#1a1e1e"))))
+ '(bm-face ((t (:background "#1a1e1e"))) t)
  '(c-nonbreakable-space-face ((t (:foreground "Black" :weight bold))) t)
  '(compilation-error ((t (:inherit error :width condensed))))
  '(css-property ((t (:inherit font-lock-variable-name-face :foreground "chartreuse"))) t)
@@ -38,7 +38,7 @@
  '(mumamo-background-chunk-submode1 ((t (:height 1.1))) t)
  '(num3-face-even ((t (:background "gray12" :overline "gray15" :underline "gray15"))) t)
  '(num3-face-odd ((t (:background "gray7" :overline "gray5" :underline "gray5"))) t)
- '(nxml-element-local-name ((t (:inherit font-lock-function-name-face))))
+ '(nxml-element-local-name ((t (:inherit font-lock-function-name-face))) t)
  '(region ((((class color) (min-colors 88) (background dark)) (:background "#140"))))
  '(semantic-decoration-on-includes ((t (:foreground "#ffb"))) t)
  '(semantic-decoration-on-private-members-face ((t (:background "#291919"))))
@@ -70,7 +70,7 @@
  '(compilation-context-lines nil)
  '(compilation-disable-input t)
  '(compilation-error-screen-columns t)
- '(compilation-read-command nil)
+ '(compilation-read-command t)
  '(compilation-save-buffers-predicate t)
  '(compilation-search-path (quote ("../build")))
  '(compilation-start-hook nil)
