@@ -38,7 +38,7 @@
  '(mumamo-background-chunk-submode1 ((t (:height 1.1))) t)
  '(num3-face-even ((t (:background "gray12" :overline "gray15" :underline "gray15"))) t)
  '(num3-face-odd ((t (:background "gray7" :overline "gray5" :underline "gray5"))) t)
- '(nxml-element-local-name ((t (:inherit font-lock-function-name-face))) t)
+ '(nxml-element-local-name ((t (:inherit font-lock-function-name-face))))
  '(region ((((class color) (min-colors 88) (background dark)) (:background "#140"))))
  '(semantic-decoration-on-includes ((t (:foreground "#ffb"))) t)
  '(semantic-decoration-on-private-members-face ((t (:background "#291919"))))
@@ -61,7 +61,9 @@
  ;; If there is more than one, they won't work right.
  '(auto-hscroll-mode t)
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(c-default-style (quote ((c-mode . "stroustrup") (c++-mode . "stroustrup") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(c-backslash-column (quote set-from-style))
+ '(c-backslash-max-column 80)
+ '(c-default-style (quote ((c-mode . "artec") (c++-mode . "artec") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(c-indent-comments-syntactically-p (quote set-from-style))
  '(cmake-project-default-build-dir-name "build/")
  '(column-number-mode t)
@@ -75,13 +77,14 @@
  '(compilation-search-path (quote ("../build")))
  '(compilation-start-hook nil)
  '(compilation-window-height 40)
- '(compile-command "g++ test.cc -o test -g")
+ '(compile-command "cd ~/projects/pkg-b3d/ && scons -Q -s -j13 ; notify-send -i emacs 'The end'")
  '(css-color-global-mode t)
  '(custom-buffer-indent 4)
  '(custom-enabled-themes nil)
  '(display-time-mode t)
  '(ede-project-directories (quote ("/home/paulus/Projects/anomalia/voyeur/sources" "/home/paulus/Projects/anomalia/voyeur")))
  '(electric-indent-mode t)
+ '(gdb-many-windows nil)
  '(global-highlight-changes-mode nil)
  '(global-semantic-tag-folding-mode t nil (semantic-util-modes))
  '(global-senator-minor-mode t nil (senator))
@@ -90,7 +93,7 @@
  '(hide-ifdef-shadow t)
  '(highlight-indentation t)
  '(highlight-nonselected-windows t)
- '(indent-tabs-mode nil)
+ '(indent-tabs-mode t)
  '(inhibit-startup-screen t)
  '(ipython-complete-function (quote py-complete))
  '(jedi:complete-on-dot t)
@@ -117,6 +120,7 @@
  '(show-paren-ring-bell-on-mismatch nil)
  '(show-paren-style (quote parenthesis))
  '(speedbar-load-hook (quote (Info-install-speedbar-variables #[nil "\300\301!\207" [require semantic-sb] 2])))
+ '(tab-width 4)
  '(timeclock-modeline-display t nil (timeclock))
  '(tool-bar-mode nil)
  '(tool-bar-style (quote text))
@@ -129,21 +133,6 @@
 
 (global-linum-mode t)
 
-
-;; customize SpeedBar
-;;(require 'sr-speedbar-autoloads)
-
-;;(when window-system          ; start speedbar if we're using a window system
-  ;;  (speedbar t))
-
-
-
-
-
-
-
-
-;;;
 
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -277,6 +266,32 @@
   (ac-clang-launch-completion-process)  
   )
 
+;; (require 'auto-complete-clang-async)
+
+;; (defun ac-cc-mode-setup ()
+;;   (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")
+;;   (setq ac-sources '(ac-source-clang-async))
+;;   (ac-clang-launch-completion-process)
+;; )
+
+;; (defun my-ac-config ()
+;;   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+;;   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+;;   (global-auto-complete-mode t))
+
+;; (my-ac-config)
+
+
+(setq auto-mode-alist
+      (cons '(".ipp" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '(".h" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("SConstruct" . python-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("SConscript" . python-mode) auto-mode-alist))
+
+
 
 (defun my-python-hook ()
   (jedi-mode)
@@ -305,14 +320,48 @@
 (my-ac-config)
 
 
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 
-;; ;; CC-mode
-;; (add-hook 'c-mode-hook '(lambda ()
-;;         (setq ac-sources (append '(ac-source-semantic) ac-sources))
-;;         (local-set-key (kbd "RET") 'newline-and-indent)
-;;         (linum-mode t)
-;;         (semantic-load-enable-excessive-code-helpers)))
+
+(require 'font-lock)
+
+(defun --copy-face (new-face face)
+  "Define NEW-FACE from existing FACE."
+  (copy-face face new-face)
+  (eval `(defvar ,new-face nil))
+  (set new-face new-face))
+
+(--copy-face 'font-lock-label-face  ; labels, case, public, private, proteced, namespace-tags
+         'font-lock-keyword-face)
+(--copy-face 'font-lock-doc-markup-face ; comment markups such as Javadoc-tags
+         'font-lock-doc-face)
+(--copy-face 'font-lock-doc-string-face ; comment markups
+         'font-lock-comment-face)
+
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
+
+
+(add-hook 'c++-mode-hook
+      '(lambda()
+        (font-lock-add-keywords
+         nil '(;; complete some fundamental keywords
+           ("\\<\\(void\\|unsigned\\|signed\\|char\\|short\\|bool\\|int\\|long\\|float\\|double\\)\\>" . font-lock-keyword-face)
+           ;; add the new C++11 keywords
+           ("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
+           ("\\<\\(char[0-9]+_t\\)\\>" . font-lock-keyword-face)
+           ;; PREPROCESSOR_CONSTANT
+           ("\\<[A-Z]+[A-Z_]+\\>" . font-lock-constant-face)
+           ;; hexadecimal numbers
+           ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
+           ;; integer/float/scientific numbers
+           ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
+           ;; user-types (customize!)
+           ("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(t\\|type\\|ptr\\)\\>" . font-lock-type-face)
+           ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
+           ))
+        ) t)
 
 
 (put 'downcase-region 'disabled t)
