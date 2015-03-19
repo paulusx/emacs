@@ -712,7 +712,7 @@ You can not use it in source definition like (prefix . `NAME')."
       (eq (get source 'available) t)
     (let* ((src (ac-source-entity source))
            (avail-pair (assq 'available src))
-           (avail-cond (cdr avail-pair))
+		   (avail-cond (cdr avail-pair))
            (available (and (if avail-pair
                                (cond
                                 ((symbolp avail-cond)
@@ -733,7 +733,7 @@ You can not use it in source definition like (prefix . `NAME')."
         if (ac-source-available-p source)
         do
         (setq source (ac-source-entity source))
-        (flet ((add-attribute (name value &optional append) (add-to-list 'source (cons name value) append)))
+		(cl-flet ((add-attribute (name value &optional append) (add-to-list 'source (cons name value) append)))
           ;; prefix
           (let* ((prefix (assoc 'prefix source))
                  (real (assoc-default (cdr prefix) ac-prefix-definitions)))

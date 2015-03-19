@@ -23,11 +23,11 @@
  '(font-lock-string-face ((t (:foreground "CadetBlue1" :slant italic))))
  '(font-lock-type-face ((t (:foreground "lime green" :height 1.0))))
  '(font-lock-variable-name-face ((t (:foreground "LightGoldenrod" :height 1.0))))
- '(hide-ifdef-shadow ((t (:inherit shadow :foreground "#232323"))))
+ '(hide-ifdef-shadow ((t (:inherit shadow :foreground "#232323"))) t)
  '(highlight-changes ((((min-colors 88) (class color)) (:underline "#140"))))
  '(highlight-changes-delete ((((min-colors 88) (class color)) (:underline t))))
  '(hl-line ((t (:background "#192019"))))
- '(idle-highlight ((t (:foreground "yellow1" :underline (:color "dodger blue" :style wave) :weight bold))))
+ '(idle-highlight ((t (:foreground "yellow1" :underline (:color "dodger blue" :style wave) :weight bold :height 1.0))))
  '(ido-subdir ((t (:foreground "green yellow"))))
  '(js2-error ((t (:background "default" :underline "firebrick"))) t)
  '(link ((((class color) (min-colors 88) (background dark)) (:foreground "yellow" :underline t))))
@@ -52,6 +52,12 @@
  '(show-paren-mismatch ((t (:background "orange red" :foreground "gray2" :weight bold))))
  '(tool-bar ((t (:background "gray20" :foreground "white" :box (:line-width 1 :style released-button)))))
  '(underline ((t nil)))
+ '(whitespace-indentation ((t (:background "gray12" :foreground "firebrick"))))
+ '(whitespace-line ((t (:underline "sienna3"))))
+ '(whitespace-newline ((t (:foreground "gray18" :weight normal))))
+ '(whitespace-space ((t (:background "grey12" :foreground "grey20"))))
+ '(whitespace-space-after-tab ((t (:foreground "firebrick"))))
+ '(whitespace-tab ((t (:background "grey12" :foreground "grey22"))))
  '(yaml-tab-face ((t (:background "dark red" :foreground "red" :weight bold)))))
 
 (custom-set-variables
@@ -59,11 +65,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(align-indent-before-aligning t)
+ '(align-to-tab-stop nil)
  '(auto-hscroll-mode t)
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(c-backslash-column (quote set-from-style))
+ '(c-auto-align-backslashes nil)
+ '(c-backslash-column 48)
  '(c-backslash-max-column 80)
- '(c-default-style (quote ((c-mode . "artec") (c++-mode . "artec") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(c-default-style
+   (quote
+	((c-mode . "stroustrup")
+	 (c++-mode . "stroustrup")
+	 (java-mode . "java")
+	 (awk-mode . "awk")
+	 (other . "gnu"))))
  '(c-indent-comments-syntactically-p (quote set-from-style))
  '(cmake-project-default-build-dir-name "build/")
  '(column-number-mode t)
@@ -77,15 +92,25 @@
  '(compilation-search-path (quote ("../build")))
  '(compilation-start-hook nil)
  '(compilation-window-height 40)
- '(compile-command "cd ~/projects/pkg-b3d/ && scons -Q -s -j13 ; notify-send -i emacs 'The end'")
+ '(compile-command
+   "ssh admin@192.168.101.161 'cd projects/lib-artec3d-sdk && scons -Q -s  -j5' ; notify-send -i emacs 'The end'")
  '(css-color-global-mode t)
  '(custom-buffer-indent 4)
  '(custom-enabled-themes nil)
  '(display-time-mode t)
- '(ede-project-directories (quote ("/home/paulus/Projects/anomalia/voyeur/sources" "/home/paulus/Projects/anomalia/voyeur")))
- '(electric-indent-mode t)
+ '(ede-project-directories
+   (quote
+	("/home/paulus/projects/pkg-b3d" "/home/paulus/Projects/anomalia/voyeur/sources" "/home/paulus/Projects/anomalia/voyeur")))
+ '(electric-indent-mode nil)
+ '(electric-pair-skip-self nil)
+ '(ergoemacs-ignore-prev-global nil)
+ '(ergoemacs-mode t)
+ '(ergoemacs-use-aliases nil)
+ '(ergoemacs-use-function-remapping nil)
+ '(ergoemacs-use-small-symbols t)
  '(gdb-many-windows nil)
  '(global-highlight-changes-mode nil)
+ '(global-semantic-decoration-mode t nil (semantic-decorate-mode))
  '(global-semantic-tag-folding-mode t nil (semantic-util-modes))
  '(global-senator-minor-mode t nil (senator))
  '(hide-ifdef-initially t)
@@ -103,34 +128,42 @@
  '(longlines-show-hard-newlines t)
  '(longlines-wrap-follows-window-size t)
  '(nxml-child-indent 4)
- '(nxml-enabled-unicode-blocks (quote (basic-latin latin-1-supplement latin-extended-a latin-extended-b ipa-extensions spacing-modifier-letters combining-diacritical-marks greek-and-coptic cyrillic cyrillic-supplementary general-punctuation superscripts-and-subscripts currency-symbols combining-diacritical-marks-for-symbols letterlike-symbols number-forms arrows mathematical-operators miscellaneous-technical control-pictures optical-character-recognition enclosed-alphanumerics box-drawing block-elements geometric-shapes miscellaneous-symbols dingbats miscellaneous-mathematical-symbols-a supplemental-arrows-a supplemental-arrows-b miscellaneous-mathematical-symbols-b supplemental-mathematical-operators cjk-symbols-and-punctuation alphabetic-presentation-forms variation-selectors small-form-variants specials mathematical-alphanumeric-symbols)))
+ '(nxml-enabled-unicode-blocks
+   (quote
+	(basic-latin latin-1-supplement latin-extended-a latin-extended-b ipa-extensions spacing-modifier-letters combining-diacritical-marks greek-and-coptic cyrillic cyrillic-supplementary general-punctuation superscripts-and-subscripts currency-symbols combining-diacritical-marks-for-symbols letterlike-symbols number-forms arrows mathematical-operators miscellaneous-technical control-pictures optical-character-recognition enclosed-alphanumerics box-drawing block-elements geometric-shapes miscellaneous-symbols dingbats miscellaneous-mathematical-symbols-a supplemental-arrows-a supplemental-arrows-b miscellaneous-mathematical-symbols-b supplemental-mathematical-operators cjk-symbols-and-punctuation alphabetic-presentation-forms variation-selectors small-form-variants specials mathematical-alphanumeric-symbols)))
  '(nxml-slash-auto-complete-flag t)
  '(pop3-leave-mail-on-server t)
  '(pop3-maildrop "seemanx")
  '(pop3-mailhost "pop3.yandex.ru")
  '(pop3-password-required t)
  '(pop3-stream-type (quote ssl))
- '(python-shell-interpreter "python2")
+ '(python-shell-interpreter "python3")
  '(safe-local-variable-values (quote ((encoding . UTF-8) (encoding . utf-8))))
  '(scalable-fonts-allowed t)
  '(scroll-bar-mode nil)
- '(semantic-c-dependency-system-include-path (quote ("/usr/include" "/usr/include/boost")))
+ '(semantic-c-dependency-system-include-path
+   (quote
+	("/usr/include" "/usr/include/boost" "/projects/pkg-b3d/bss/ext")))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
  '(show-paren-ring-bell-on-mismatch nil)
  '(show-paren-style (quote parenthesis))
- '(speedbar-load-hook (quote (Info-install-speedbar-variables #[nil "\300\301!\207" [require semantic-sb] 2])))
+ '(speedbar-load-hook
+   (quote
+	(Info-install-speedbar-variables
+	 #[nil "\300\301!\207"
+		   [require semantic-sb]
+		   2])))
  '(tab-width 4)
  '(timeclock-modeline-display t nil (timeclock))
  '(tool-bar-mode nil)
  '(tool-bar-style (quote text))
+ '(whitespace-action (quote (auto-cleanup)))
  '(word-wrap t)
  '(x-stretch-cursor t)
  '(yas-trigger-key "C-<tab>"))
 
-(add-to-list 'load-path "~/.emacs.d/")
-;; (add-to-list 'load-path "~/.emacs.d/ede-cmake")
-
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (global-linum-mode t)
 
 
@@ -141,11 +174,6 @@
 (require 'ido)
 (ido-mode t)
 ;;;; Other settings
-
-
-
-
-;;(setq speedbar-mode-hook '(lambda () () (linum-mode 0)))
 
 
 (global-hl-line-mode -1) ;; подсветка строки с курсором
@@ -159,8 +187,6 @@
 (global-unset-key "\C-xf")
 ;;; Удалить привязку `C-z'
 (global-unset-key "\C-z")
-;;; Удалить привязку `f2'
-
 
 (defun my-mark-line ()
   (interactive)
@@ -171,7 +197,7 @@
 ;  (beginning-of-line)
   )
 
-(global-set-key (kbd "C-c m") 'my-mark-line) 
+(global-set-key (kbd "C-c m") 'my-mark-line)
 
 
 (global-set-key [f2] 'menu-bar-mode)
@@ -196,15 +222,13 @@
 (global-set-key (kbd "s-<") 'bm-previous)
 
 (global-set-key (kbd "s-i") 'idle-highlight)
+(global-set-key (kbd "s-q") 'other-frame)
+(global-set-key (kbd "s-f") 'whitespace-mode)
 
 
 ;; (require `python-mode)
 ;;; Закоментить регион
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-
-;;; Перейти к противоположной скобке
-(global-set-key (kbd "C-c SPC") 'match-paren)
-;(global-set-key (kbd "<f11>") ')
 
 
 ;; CMake
@@ -213,9 +237,9 @@
 
 (require 'cmake-mode)
 (setq auto-mode-alist
-      (append '(("CMakeLists\\.txt\\'" . cmake-mode)
-                ("\\.cmake\\'" . cmake-mode))
-              auto-mode-alist))
+	  (append '(("CMakeLists\\.txt\\'" . cmake-mode)
+				("\\.cmake\\'" . cmake-mode))
+			  auto-mode-alist))
 
 
 ;; Именование буферов с одинаковыми именами
@@ -233,16 +257,15 @@
 (require 'highlight-parentheses)
 ;; (add-hook 'lisp-mode-hook (highlight-parentheses-mode))
 (define-globalized-minor-mode global-highlight-parentheses-mode
-        highlight-parentheses-mode highlight-parentheses-mode)
+		highlight-parentheses-mode highlight-parentheses-mode)
 (setq hl-paren-colors '("ff4400"  "#1FFF00" "#009EFF" "#2100FF" "ffaa00" "#00AAFF" "#00ff00"))
 (global-highlight-parentheses-mode)
-
+(global-ws-trim-mode)
 
 
 ;; YAS
 (require 'yasnippet)
 (yas-global-mode t)
-
 
 ;; Python
 (require 'jedi)
@@ -250,26 +273,23 @@
 ;;;;
 (require 'yaml-mode)
 
-
-
 ;; Semantic
-
-(require 'auto-complete-clang-async)
 (require 'cedet)
+(require 'semantic)
 
-(global-ede-mode t) 
+;; (global-ede-mode t)
 
-(require 'cpputils-cmake-autoloads)
-(defun ac-cc-mode-setup ()
-  (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-  (setq ac-sources '(ac-source-clang-async))
-  (ac-clang-launch-completion-process)  
-  )
+;; (require 'cpputils-cmake-autoloads)
+;; (defun ac-cc-mode-setup ()
+;;   (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+;;   (setq ac-sources '(ac-source-clang-async))
+;;   (ac-clang-launch-completion-process)
+;;   )
 
 ;; (require 'auto-complete-clang-async)
 
 ;; (defun ac-cc-mode-setup ()
-;;   (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")
+;;   (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
 ;;   (setq ac-sources '(ac-source-clang-async))
 ;;   (ac-clang-launch-completion-process)
 ;; )
@@ -283,15 +303,15 @@
 
 
 (setq auto-mode-alist
-      (cons '(".ipp" . c++-mode) auto-mode-alist))
+	  (cons '("\\.ipp" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist
-      (cons '(".h" . c++-mode) auto-mode-alist))
+	  (cons '("\\.h" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist
-      (cons '("SConstruct" . python-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("SConscript" . python-mode) auto-mode-alist))
+	  (cons '("\\.inl" . c++-mode) auto-mode-alist))
 
 
+(setq auto-mode-alist
+	  (cons '("SConstruct" . python-mode) auto-mode-alist))
 
 (defun my-python-hook ()
   (jedi-mode)
@@ -301,12 +321,12 @@
 
 (add-hook 'python-mode-hook 'my-python-hook)
 
-
 (defun my-c-mode-common-hook ()
   (idle-highlight)
   (outline-minor-mode)
+  (ws-trim-mode)
   (local-set-key (kbd "C-c <") 'hide-subtree)
-  (local-set-key (kbd "C-c <") 'show-subtree)
+  (local-set-key (kbd "C-c >") 'show-subtree)
   )
 
 (defun ac-common-setup () nil)
@@ -314,15 +334,12 @@
 (defun my-ac-config ()
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-;  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+ ;  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t))
 
 (my-ac-config)
 
-
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-
-
 
 (require 'font-lock)
 
@@ -332,36 +349,41 @@
   (eval `(defvar ,new-face nil))
   (set new-face new-face))
 
-(--copy-face 'font-lock-label-face  ; labels, case, public, private, proteced, namespace-tags
-         'font-lock-keyword-face)
+(--copy-face 'font-lock-label-face ; key words
+;			 labels, case, public, private, proteced, namespace-tags
+			 'font-lock-keyword-face)
+
 (--copy-face 'font-lock-doc-markup-face ; comment markups such as Javadoc-tags
-         'font-lock-doc-face)
+			 'font-lock-doc-face)
 (--copy-face 'font-lock-doc-string-face ; comment markups
-         'font-lock-comment-face)
+			 'font-lock-comment-face)
 
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
 
 
 (add-hook 'c++-mode-hook
-      '(lambda()
-        (font-lock-add-keywords
-         nil '(;; complete some fundamental keywords
-           ("\\<\\(void\\|unsigned\\|signed\\|char\\|short\\|bool\\|int\\|long\\|float\\|double\\)\\>" . font-lock-keyword-face)
-           ;; add the new C++11 keywords
-           ("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
-           ("\\<\\(char[0-9]+_t\\)\\>" . font-lock-keyword-face)
-           ;; PREPROCESSOR_CONSTANT
-           ("\\<[A-Z]+[A-Z_]+\\>" . font-lock-constant-face)
-           ;; hexadecimal numbers
-           ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
-           ;; integer/float/scientific numbers
-           ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
-           ;; user-types (customize!)
-           ("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(t\\|type\\|ptr\\)\\>" . font-lock-type-face)
-           ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
-           ))
-        ) t)
+	  '(lambda()
+		(font-lock-add-keywords
+		 nil '(;; complete some fundamental keywords
+		   ("\\<\\(void\\|unsigned\\|signed\\|char\\|short\\|bool\\|int\\|long\\|float\\|double\\)\\>" . font-lock-keyword-face)
+		   ;; add the new C++11 keywords
+		   ("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\""|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
+		   ("\\<\\(char[0-9]+_t\\)\\>" . font-lock-keyword-face)
+		   ;; PREPROCESSOR_CONSTANT
+		   ("\\<[A-Z]+[A-Z_]+\\>" . font-lock-constant-face)
+		   ;; hexadecimal numbers
+		   ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
+		   ;; integer/float/scientific numbers
+		   ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
+		   ;; user-types (customize!)
+		   ("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(t\\|type\\|ptr\\)\\>" . font-lock-type-face)
+		   ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
+		   ))
+		) t)
 
+
+;;; MultiMedia
+(require 'emms-auto)
 
 (put 'downcase-region 'disabled t)
