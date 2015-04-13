@@ -1844,7 +1844,7 @@ foo\"bar\\! -> \"foo\\\"bar\\\\!\""
 This works by stubbing a few functions, then calling
 `yas-load-directory'."
   (interactive "DTop level snippet directory?")
-  (flet ((yas--load-yas-setup-file
+  (cl-flet ((yas--load-yas-setup-file
           (file)
           (let ((elfile (concat file ".el")))
             (when (file-exists-p elfile)
@@ -3654,7 +3654,7 @@ Returns the newly created snippet."
 
 This is according to their relative positions in the buffer, and
 has to be called before the $-constructs are deleted."
-  (flet ((yas--fom-set-next-fom (fom nextfom)
+  (cl-flet ((yas--fom-set-next-fom (fom nextfom)
                                (cond ((yas--field-p fom)
                                       (setf (yas--field-next fom) nextfom))
                                      ((yas--mirror-p fom)
