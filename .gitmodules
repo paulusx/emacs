@@ -1,0 +1,7 @@
+[submodule "rust-mode"]
+	path = rust-mode
+	url = https://github.com/rust-lang/rust-mode.git
+[submodule "emacs-clang-complete-async"]
+	path = emacs-clang-complete-async
+	url = https://github.com/Golevka/emacs-clang-complete-async.git
+
