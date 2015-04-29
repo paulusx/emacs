@@ -5,3 +5,6 @@
 	path = emacs-clang-complete-async
 	url = https://github.com/Golevka/emacs-clang-complete-async.git
 
+[submodule "racer"]
+	path = racer
+	url = https://github.com/phildawes/racer.git

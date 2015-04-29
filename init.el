@@ -411,10 +411,25 @@
 
 
 
-;;; rust conf
+;;; begin rust conf
 
 (add-to-list 'load-path "~/.emacs.d/rust-mode")
-(require 'rust-mode)
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 
+
+(setq racer-rust-src-path "/home/paulus/projects/rust-nightly/rustc-nightly/src")
+
+(cond ((file-exists-p racer-rust-src-path)
+	   (setq racer-cmd "~/.emacs.d/racer/target/release/racer")
+	   (add-to-list 'load-path "~/.emacs.d/racer/editors")
+	   (eval-after-load "rust-mode" '(require 'racer))
+	   )
+	  (t
+	   (message "Need download Rust sources! (http://static.rust-lang.org/dist/rustc-nightly-src.tar.gz)")
+	   (error "Not found dir with sources of Rust: «%s»" racer-rust-src-path))
+	  )
+
+;;; end rust conf
 (put 'downcase-region 'disabled t)
