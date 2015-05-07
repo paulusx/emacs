@@ -309,7 +309,12 @@
 
 (add-hook 'python-mode-hook 'my-python-hook)
 
-;; ######################################################################
+;; C++  ######################################################################
+
+(require `cedet)
+(require `semantic)
+(require `semanticdb)
+
 
 (setq pkg-b3d-include
 	  (mapcar
@@ -358,6 +363,7 @@
   (ac-clang-launch-completion-process)
 )
 
+
 (defun my-c-mode-common-hook ()
   (idle-highlight)
   (outline-minor-mode)
@@ -365,8 +371,8 @@
   (local-set-key (kbd "C-c <") 'hide-subtree)
   (local-set-key (kbd "C-c >") 'show-subtree)
   (ac-cc-mode-setup)
+  (when (derived-mode-p 'c-mode 'c++-mode 'java-mode) (ggtags-mode 1))
   )
-
 
 (defun my-ac-config ()
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
@@ -376,8 +382,21 @@
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
-;;######################################################################
+;;###############################################################################
 
+
+(global-ede-mode 1)
+
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+(global-semantic-idle-completions-mode 1)
+(semantic-add-system-include "/usr/include" 'c++-mode)
+
+
+;; bindings
+(global-set-key (kbd "C-x M-q") 'eassist-switch-h-cpp)
+
+;;################################################################################
 (defvar font-lock-newkeyword-face
   (defface font-lock-newkeyword-face
 	'((((class color))
