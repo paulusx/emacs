@@ -366,7 +366,6 @@
   (ac-cc-mode-setup)
   )
 
-
 (defun my-ac-config ()
   (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
   (global-auto-complete-mode t))
@@ -374,9 +373,30 @@
 (my-ac-config)
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook (lambda ()
+								(when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+								  (ggtags-mode 1))))
 
-;;######################################################################
+;;###############################################################################
 
+(require `cedet)
+(require `semantic)
+(require `semanticdb)
+
+(global-ede-mode 1)
+
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+(global-semantic-idle-completions-mode 1)
+(semantic-add-system-include "/usr/include" 'c++-mode)
+
+(defun my-c-mode-cedet-hook ()
+(add-hook 'c-mode-common-hook 'my-c-mode-cedet-hook)
+
+;; bindings
+(global-set-key (kbd "C-x M-q") 'eassist-switch-h-cpp)
+
+;;################################################################################
 (defvar font-lock-newkeyword-face
   (defface font-lock-newkeyword-face
 	'((((class color))
