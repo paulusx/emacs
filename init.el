@@ -25,7 +25,7 @@
  '(font-lock-string-face ((t (:foreground "CadetBlue1" :slant italic))))
  '(font-lock-type-face ((t (:foreground "forest green" :height 1.0))))
  '(font-lock-variable-name-face ((t (:foreground "LightGoldenrod" :height 1.0))))
- '(hide-ifdef-shadow ((t (:inherit shadow :foreground "#232323"))) t)
+ '(hide-ifdef-shadow ((t (:inherit shadow :foreground "#232323"))))
  '(highlight-changes ((((min-colors 88) (class color)) (:underline "#140"))))
  '(highlight-changes-delete ((((min-colors 88) (class color)) (:underline t))))
  '(hl-line ((t (:background "#192019"))))
@@ -84,18 +84,21 @@
  '(c-indent-comments-syntactically-p (quote set-from-style))
  '(cmake-project-default-build-dir-name "build/")
  '(column-number-mode t)
+ '(compilation-always-kill t)
  '(compilation-ask-about-save nil)
- '(compilation-auto-jump-to-first-error nil)
+ '(compilation-auto-jump-to-first-error t)
  '(compilation-context-lines nil)
  '(compilation-disable-input t)
  '(compilation-error-screen-columns t)
+ '(compilation-mode-hook nil)
  '(compilation-read-command t)
  '(compilation-save-buffers-predicate t)
  '(compilation-search-path (quote ("../build")))
+ '(compilation-skip-threshold 2)
  '(compilation-start-hook nil)
  '(compilation-window-height 40)
  '(compile-command
-   " cd ~/projects/pkg-b3d && scons -Q -s  -j13 ; notify-send -i emacs 'The end'")
+   "cd ~/projects/lib-artec3d-sdk/algorithm-sdk/ext/3dproc/ && scons ")
  '(css-color-global-mode t)
  '(custom-buffer-indent 4)
  '(custom-enabled-themes nil)
@@ -150,7 +153,7 @@
 	(Info-install-speedbar-variables
 	 #[nil "\300\301!\207"
 		   [require semantic-sb]
-		   2])) t)
+		   2])))
  '(tab-width 4)
  '(timeclock-modeline-display t nil (timeclock))
  '(tool-bar-mode nil)
@@ -300,6 +303,9 @@
 
 (setq auto-mode-alist
 	  (cons '("SConstruct" . python-mode) auto-mode-alist))
+
+(setq auto-mode-alist
+	  (cons '("SConscript" . python-mode) auto-mode-alist))
 
 (defun my-python-hook ()
   (jedi-mode)
