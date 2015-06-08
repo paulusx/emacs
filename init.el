@@ -103,9 +103,6 @@
  '(custom-buffer-indent 4)
  '(custom-enabled-themes nil)
  '(display-time-mode t)
- '(ede-project-directories
-   (quote
-	("/home/paulus/projects/pkg-b3d" "/home/paulus/Projects/anomalia/voyeur/sources" "/home/paulus/Projects/anomalia/voyeur")))
  '(electric-indent-mode nil)
  '(electric-pair-skip-self nil)
  '(ergoemacs-ignore-prev-global nil)
@@ -274,21 +271,8 @@
 ;; Python
 (require 'jedi)
 
-;;;;
+
 (require 'yaml-mode)
-
-;; Semantic
-;;(require 'cedet)
-;;(require 'semantic)
-
-;;(global-ede-mode t)
-
-;; (require 'cpputils-cmake-autoloads)
-;; (defun ac-cc-mode-setup ()
-;;   (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-;;   (setq ac-sources '(ac-source-clang-async))
-;;   (ac-clang-launch-completion-process)
-;;   )
 
 
 (require 'font-lock)
@@ -391,11 +375,11 @@
 ;;###############################################################################
 
 
-(global-ede-mode 1)
+;(global-ede-mode 1)
 
 (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
 (global-srecode-minor-mode 1)            ; Enable template insertion menu
-(global-semantic-idle-completions-mode 1)
+;(global-semantic-idle-completions-mode 1)
 (semantic-add-system-include "/usr/include" 'c++-mode)
 
 
