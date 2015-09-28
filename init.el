@@ -52,6 +52,7 @@
  '(semantic-tag-boundary-face ((((class color) (background dark)) (:foreground "#fff" :overline nil :height 1.0 :family "monofur"))))
  '(show-paren-match ((t (:background "steelblue3" :foreground "#005" :weight semi-bold))))
  '(show-paren-mismatch ((t (:background "orange red" :foreground "gray2" :weight bold))))
+ '(speedbar-separator-face ((t (:foreground "white" :weight bold :height 1.2))))
  '(tool-bar ((t (:background "gray20" :foreground "white" :box (:line-width 1 :style released-button)))))
  '(underline ((t nil)))
  '(whitespace-indentation ((t (:background "gray12" :foreground "firebrick"))))
@@ -76,33 +77,33 @@
  '(c-backslash-max-column 80)
  '(c-default-style
    (quote
-	((c-mode . "stroustrup")
-	 (c++-mode . "stroustrup")
-	 (java-mode . "java")
-	 (awk-mode . "awk")
-	 (other . "gnu"))))
+    ((c-mode . "stroustrup")
+     (c++-mode . "stroustrup")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(c-indent-comments-syntactically-p (quote set-from-style))
  '(cmake-project-default-build-dir-name "build/")
  '(column-number-mode t)
- '(compilation-always-kill t)
  '(compilation-ask-about-save nil)
- '(compilation-auto-jump-to-first-error t)
+ '(compilation-auto-jump-to-first-error nil)
  '(compilation-context-lines nil)
  '(compilation-disable-input t)
  '(compilation-error-screen-columns t)
- '(compilation-mode-hook nil)
  '(compilation-read-command t)
  '(compilation-save-buffers-predicate t)
  '(compilation-search-path (quote ("../build")))
- '(compilation-skip-threshold 2)
  '(compilation-start-hook nil)
  '(compilation-window-height 40)
  '(compile-command
-   "cd ~/projects/lib-artec3d-sdk/algorithm-sdk/ext/3dproc/ && scons ")
+   "cd ~/projects/opengl/ && scons -f ~/projects/build-system/SConstruct --profiles-file=~/projects/build-system/profiles/linux.yaml -j9 --scann-dir=~/projects/opengl --use-profile=debug --module=example")
  '(css-color-global-mode t)
  '(custom-buffer-indent 4)
  '(custom-enabled-themes nil)
  '(display-time-mode t)
+ '(ede-project-directories
+   (quote
+    ("/home/paulus/projects/pkg-b3d" "/home/paulus/Projects/anomalia/voyeur/sources" "/home/paulus/Projects/anomalia/voyeur")))
  '(electric-indent-mode nil)
  '(electric-pair-skip-self nil)
  '(ergoemacs-ignore-prev-global nil)
@@ -117,7 +118,7 @@
  '(hide-ifdef-shadow t)
  '(highlight-indentation t)
  '(highlight-nonselected-windows t)
- '(indent-tabs-mode t)
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(ipython-complete-function (quote py-complete))
  '(jedi:complete-on-dot t)
@@ -129,7 +130,7 @@
  '(nxml-child-indent 4)
  '(nxml-enabled-unicode-blocks
    (quote
-	(basic-latin latin-1-supplement latin-extended-a latin-extended-b ipa-extensions spacing-modifier-letters combining-diacritical-marks greek-and-coptic cyrillic cyrillic-supplementary general-punctuation superscripts-and-subscripts currency-symbols combining-diacritical-marks-for-symbols letterlike-symbols number-forms arrows mathematical-operators miscellaneous-technical control-pictures optical-character-recognition enclosed-alphanumerics box-drawing block-elements geometric-shapes miscellaneous-symbols dingbats miscellaneous-mathematical-symbols-a supplemental-arrows-a supplemental-arrows-b miscellaneous-mathematical-symbols-b supplemental-mathematical-operators cjk-symbols-and-punctuation alphabetic-presentation-forms variation-selectors small-form-variants specials mathematical-alphanumeric-symbols)))
+    (basic-latin latin-1-supplement latin-extended-a latin-extended-b ipa-extensions spacing-modifier-letters combining-diacritical-marks greek-and-coptic cyrillic cyrillic-supplementary general-punctuation superscripts-and-subscripts currency-symbols combining-diacritical-marks-for-symbols letterlike-symbols number-forms arrows mathematical-operators miscellaneous-technical control-pictures optical-character-recognition enclosed-alphanumerics box-drawing block-elements geometric-shapes miscellaneous-symbols dingbats miscellaneous-mathematical-symbols-a supplemental-arrows-a supplemental-arrows-b miscellaneous-mathematical-symbols-b supplemental-mathematical-operators cjk-symbols-and-punctuation alphabetic-presentation-forms variation-selectors small-form-variants specials mathematical-alphanumeric-symbols)))
  '(nxml-slash-auto-complete-flag t)
  '(pop3-leave-mail-on-server t)
  '(pop3-maildrop "seemanx")
@@ -137,6 +138,7 @@
  '(pop3-password-required t)
  '(pop3-stream-type (quote ssl))
  '(python-shell-interpreter "python3")
+ '(racer-cmd "/home/paulus/.emacs.d/racer/target/release/racer" t)
  '(rust-indent-method-chain t)
  '(safe-local-variable-values (quote ((encoding . UTF-8) (encoding . utf-8))))
  '(scalable-fonts-allowed t)
@@ -147,10 +149,11 @@
  '(show-paren-style (quote parenthesis))
  '(speedbar-load-hook
    (quote
-	(Info-install-speedbar-variables
-	 #[nil "\300\301!\207"
-		   [require semantic-sb]
-		   2])))
+    (Info-install-speedbar-variables
+     #[nil "\300\301!\207"
+           [require semantic-sb]
+           2])))
+ '(speedbar-use-images nil)
  '(tab-width 4)
  '(timeclock-modeline-display t nil (timeclock))
  '(tool-bar-mode nil)
@@ -170,11 +173,14 @@
 
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
 (require 'ido)
-(ido-mode t)
+(ido-mode)
 ;;;; Other settings
+
+(add-hook 'after-init-hook 'global-company-mode)
 
 
 (global-hl-line-mode -1) ;; подсветка строки с курсором
@@ -205,6 +211,8 @@
 
 (global-set-key (kbd "s-z") 'compile)
 
+(set-frame-parameter (selected-frame) 'alpha '(97 90))
+(add-to-list 'default-frame-alist '(alpha 97 90))
 
 (global-set-key [s-up] 'windmove-up)
 (global-set-key [s-left] 'windmove-left)
@@ -414,7 +422,7 @@
 		   ;; integer/float/scientific numbers
 		   ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
 		   ;; user-types (customize!)
-		   ("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(t\\|type\\|ptr\\)\\>" . font-lock-type-face)
+           ;;("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(t\\|type\\|ptr\\)\\>" . font-lock-type-face)
 		   ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
 		   ))
 		) t)
@@ -428,18 +436,39 @@
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 
+(setq racer-cmd "/home/paulus/.emacs.d/racer/target/release/racer")
+(setq racer-rust-src-path "/home/paulus/projects/rust/src")
 
-(setq racer-rust-src-path "/home/paulus/projects/rust-nightly/rustc-nightly/src")
+(add-to-list 'load-path "~/.emacs.d/emacs-racer")
+(require 'racer)
 
-(cond ((file-exists-p racer-rust-src-path)
-	   (setq racer-cmd "~/.emacs.d/racer/target/release/racer")
-	   (add-to-list 'load-path "~/.emacs.d/racer/editors")
-	   (eval-after-load "rust-mode" '(require 'racer))
-	   )
-	  (t
-	   (message "Need download Rust sources! (http://static.rust-lang.org/dist/rustc-nightly-src.tar.gz)")
-	   (error "Not found dir with sources of Rust: «%s»" racer-rust-src-path))
-	  )
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+
+(add-hook 'racer-mode-hook #'company-mode)
+(eval-after-load "rust-mode" '(require 'racer))
+
+
+
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ; or company-complete
+(setq company-tooltip-align-annotations t)
+
+;; (cond ((file-exists-p racer-rust-src-path)
+
+;;        (setq racer-cmd "~/.emacs.d/racer/target/release/racer")
+;;        (add-to-list 'load-path "~/.emacs.d/racer/editors/emacs/")
+;;        (eval-after-load "rust-mode" '(require 'racer))
+;;        (add-hook 'rust-mode-hook #'racer-mode)
+;; 	   (add-hook 'racer-mode-hook #'eldoc-mode)
+
+;;        (global-set-key (kbd "TAB") #'company-complete-common-or-cycle)
+;; 	   (setq company-tooltip-align-annotations t)
+
+;; 	   )
+;; 	  (t
+;; 	   (message "Need download Rust sources! (http://static.rust-lang.org/dist/rustc-nightly-src.tar.gz)")
+;; 	   (error "Not found dir with sources of Rust: «%s»" racer-rust-src-path))
+;; 	  )
 
 ;;; end rust conf
 (put 'downcase-region 'disabled t)
