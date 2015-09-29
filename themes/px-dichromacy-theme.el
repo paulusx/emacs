@@ -3,7 +3,6 @@
 
 (custom-theme-set-faces
  'px-dichromacy
- '(default ((t (:family "monofur" :foundry "unknown" :width normal :height 128 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "black" :background "white" :stipple nil :inherit nil))))
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Sans Serif"))))
@@ -16,8 +15,8 @@
  '(trailing-whitespace ((t (:background "#d55e00"))))
  '(font-lock-builtin-face ((t (:foreground "#0072b2"))))
  '(font-lock-comment-delimiter-face ((default (:inherit (font-lock-comment-face)))))
- '(font-lock-comment-face ((t (:slant italic :foreground "#009e73"))))
- '(font-lock-constant-face ((t (:weight bold :foreground "#d55e00"))))
+ '(font-lock-comment-face ((t (:foreground "light sky blue" :slant oblique))))
+ '(font-lock-constant-face ((t (:foreground "#d55e00" :weight normal))))
  '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
  '(font-lock-function-name-face ((t (:foreground "#d55e00"))))
  '(font-lock-keyword-face ((t (:weight bold :foreground "#56b4e9"))))
@@ -27,7 +26,7 @@
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
  '(font-lock-string-face ((t (:foreground "#848ea9"))))
  '(font-lock-type-face ((t (:weight bold :foreground "#0072b2"))))
- '(font-lock-variable-name-face ((t (:weight bold :foreground "#e69f00"))))
+ '(font-lock-variable-name-face ((t (:foreground "#e69f00" :weight semi-light))))
  '(font-lock-warning-face ((t (:inherit (error)))))
  '(button ((t (:inherit (link)))))
  '(link ((t (:underline (:color foreground-color :style line) :foreground "#0072b2"))))
@@ -45,6 +44,7 @@
  '(lazy-highlight ((t (:foreground "white" :background "#cc79a7"))))
  '(match ((((class color) (min-colors 88) (background light)) (:background "yellow1")) (((class color) (min-colors 88) (background dark)) (:background "RoyalBlue3")) (((class color) (min-colors 8) (background light)) (:foreground "black" :background "yellow")) (((class color) (min-colors 8) (background dark)) (:foreground "white" :background "blue")) (((type tty) (class mono)) (:inverse-video t)) (t (:background "gray"))))
  '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch))))))
+ '(query-replace ((t (:inherit (isearch)))))
+ '(default ((t (:family "monofur" :foundry "unknown" :width normal :height 128 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "black" :background "white" :stipple nil :inherit nil)))))
 
 (provide-theme 'px-dichromacy)

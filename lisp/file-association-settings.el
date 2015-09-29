@@ -1,5 +1,0 @@
-
-
-
-
-(provide file-association-settings)
