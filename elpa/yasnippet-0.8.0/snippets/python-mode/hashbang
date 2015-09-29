@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: hashbang
-# key: #!
-# binding: direct-keybinding
-# expand-env: ((some-var some-value))
-# type: command
-# --
-#!/usr/bin/env python(${0:})

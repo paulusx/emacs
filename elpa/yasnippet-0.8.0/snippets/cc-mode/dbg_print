@@ -1,4 +1,0 @@
-# name: dbg print
-# key: dbg
-# --
-std::cout << "#####  " << __FILE__ << ":" << __LINE__ << "\t"  << __PRETTY_FUNCTION__ << std::endl;
