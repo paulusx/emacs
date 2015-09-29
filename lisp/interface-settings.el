@@ -23,7 +23,7 @@
 (setq hl-paren-colors
       '(
 	"#ff4400"
-	"#1fff00"
+	"#229900"
 	"#009eff"
 	"#2100ff"
 	"#ffaa00"
