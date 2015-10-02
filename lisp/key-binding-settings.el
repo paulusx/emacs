@@ -18,4 +18,6 @@
 (global-set-key [s-right] 'windmove-right)
 (global-set-key [s-down] 'windmove-down)
 
+(global-set-key [C-return] #'company-indent-or-complete-common)
+
 (provide 'key-binding-settings)

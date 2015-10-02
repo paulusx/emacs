@@ -5,9 +5,7 @@
 (global-hl-line-mode -1) ;; подсветка строки с курсором
 (fset 'yes-or-no-p 'y-or-n-p) ;; просим емакс быть кратким
 (desktop-save-mode t)
-
 (global-linum-mode t)
-
 
 (custom-set-variables
  '(tool-bar-mode nil)
