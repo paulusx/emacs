@@ -34,4 +34,12 @@
 			  auto-mode-alist))
 
 
+;;; Rust
+(defun my/rust-mode-hook ()
+  (add-to-list 'company-backends 'company-racer)
+  )
+
+(add-hook 'rust-mode-hook 'my/rust-mode-hook)
+
+
 (provide 'associations-files-settings)

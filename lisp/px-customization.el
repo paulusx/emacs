@@ -35,7 +35,7 @@
 
 ;; associations files
 (require 'associations-files-settings)
-
+(require 'rust-settings)
 ;; Company settings
 (global-company-mode t)
 (setq company-tooltip-align-annotations t)
