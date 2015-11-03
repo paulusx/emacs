@@ -20,4 +20,8 @@
 
 (global-set-key [C-return] #'company-indent-or-complete-common)
 
+;;; Code navigation
+
+
+
 (provide 'key-binding-settings)

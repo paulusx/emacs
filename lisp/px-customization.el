@@ -5,9 +5,7 @@
 (load-theme 'px-dichromacy)
 
 
-
-
-;; (add-hook 'after-init-hook 'lambda () (…))
+(add-hook 'after-init-hook 'server-start)
 
 ;; Interface
 (require 'interface-settings) ;; common settings
@@ -30,21 +28,24 @@
 (setq uniquify-ignore-buffers-re "^\\*")
 (setq post-forward-angle-brackets 'post-forward-angle-brackets)
 
-(require 'cmake-mode)
-(require 'jedi-core)
-
-;; associations files
-(require 'associations-files-settings)
-(require 'rust-settings)
 ;; Company settings
 (global-company-mode t)
 (setq company-tooltip-align-annotations t)
 ;;; global company backends list
 (add-to-list 'company-backends 'company-yasnippet)
 
+(require 'cmake-mode)
+(require 'jedi-core)
+
+;; associations files
+
+(global-ede-mode t)
+
+(require 'associations-files-settings)
+(require 'rust-settings)
+
 
 (yas-global-mode t)
 (ws-butler-global-mode)
-
-
+(global-semantic-decoration-mode t)
 (provide 'px-customization)
