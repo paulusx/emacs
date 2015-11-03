@@ -9,10 +9,10 @@
 (require 'semantic/senator)
 ;;; customize company-mode
 (defun my/c-mode-common-hook ()
-  (push 'company-clang 'company-backends)
-  (push 'company-c-headers 'company-backends)
-  (push 'company-gtags 'company-backends)
-  (push 'company-yasnippet 'company-backends)
+  ;; (push 'company-clang 'company-backends)
+  ;; (push 'company-c-headers 'company-backends)
+  ;; (push 'company-gtags 'company-backends)
+  ;; (push 'company-yasnippet 'company-backends)
   ;; Key bidnings settings
   (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
   (local-set-key (kbd "s-/") 'senator-fold-tag-toggle)
