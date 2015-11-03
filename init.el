@@ -14,7 +14,7 @@
      (awk-mode . "awk")
      (other . "gnu"))))
  '(c-report-syntactic-errors nil)
- '(company-auto-complete nil)
+ '(company-auto-complete (quote (quote company-explicit-action-p)))
  '(company-backends
    (quote
     (company-gtags company-c-headers company-jedi company-yasnippet company-bbdb company-nxml company-css company-eclim company-clang company-xcode company-cmake company-capf
@@ -29,6 +29,7 @@
     ("-std=c++14 -I/home/paulus/projects/artecsdk/ext/3dproc/include" "-I/home/paulus/projects/artecsdk/ext/cameras/include" "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include" "-I/home/paulus/projects/artecsdk/ext/engine/include" "-I/home/paulus/projects/artecsdk/ext/flyuart/include" "-I/home/paulus/projects/artecsdk/ext/tunecols/include" "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include" "-I/home/paulus/projects/artecsdk/ext/3drec/include" "-I/home/paulus/projects/artecsdk/algorithms/include" "-I/home/paulus/projects/artecsdk/base/include" "-I/home/paulus/projects/artecsdk/base/tref-sample/include" "-I/home/paulus/projects/artecsdk/capturing/include" "-I/home/paulus/projects/artecsdk/scanning/include" "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs" "-I /home/paulus/projects/lib-rendering/a3d")))
  '(company-completion-cancelled-hook nil)
  '(company-racer-executable "~/.emacs.d/racer/target/release/racer")
+ '(company-selection-wrap-around t)
  '(company-tooltip-flip-when-above t)
  '(company-tooltip-minimum-width 8)
  '(company-tooltip-offset-display (quote lines))
