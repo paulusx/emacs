@@ -1,6 +1,17 @@
-(setq company-backends (delete 'company-semantic company-backends))
+;;(setq company-backends (delete 'company-semantic company-backends))
 
-
+;; (eval-after-load 'company
+;;   `(lambda ()
+;;      (setq company-backends ())
+;;      (add-to-list 'company-backends 'company-irony)
+;;      (add-to-list 'company-backends 'company-keywords)
+;;      (add-to-list 'company-backends 'company-clang)
+;;      (add-to-list 'company-backends 'company-c-headers)
+;;      (add-to-list 'company-backends 'company-yasnippet)
+;;      (add-to-list 'company-backends 'company-semantic)
+;;      (add-to-list 'company-backends 'company-gtags)
+;;      )
+;;   )
 
 (require 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.2.0/")
@@ -9,17 +20,27 @@
 (require 'semantic/senator)
 ;;; customize company-mode
 (defun my/c-mode-common-hook ()
-  ;; (push 'company-clang 'company-backends)
-  ;; (push 'company-c-headers 'company-backends)
-  ;; (push 'company-gtags 'company-backends)
-  ;; (push 'company-yasnippet 'company-backends)
   ;; Key bidnings settings
   (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
-  (local-set-key (kbd "s-/") 'senator-fold-tag-toggle)
-
+  ;;(local-set-key (kbd "s-/") 'senator-fold-tag-toggle)
+  (local-set-key (kbd "s-/") 'company-c-headers)
+  ;; company
+  (set (make-local-variable 'company-backends)
+       '(
+         (company-clang
+          :with company-keywords
+          :with company-yasnippet
+          :with company-irony
+          )
+         ;;company-c-headers
+         ;; company-semantic
+         ;; company-gtags
+         )
+       )
   )
 
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
+
 
 ;; (require 'cc-mode)
 
