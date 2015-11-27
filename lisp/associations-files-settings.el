@@ -41,5 +41,26 @@
 
 (add-hook 'rust-mode-hook 'my/rust-mode-hook)
 
+;;; Lisp
+(defun my/lisp-hook ()
+  ;; company
+  (set (make-local-variable 'company-backends)
+       '(company-elisp)
+       )
+  )
+
+
+(add-hook 'lisp-mode-hook 'my/lisp-hook)
+
+;;; Protobuf
+
+(defun my/protobuf-hook ()
+  (set (make-local-variable 'company-backends)
+       '(
+         (company-dabbrev :with company-keywords)
+         )
+       )
+  )
+(add-hook 'protobuf-mode-hook 'my/protobuf-hook)
 
 (provide 'associations-files-settings)

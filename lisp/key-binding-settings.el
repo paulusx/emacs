@@ -18,10 +18,8 @@
 (global-set-key [s-right] 'windmove-right)
 (global-set-key [s-down] 'windmove-down)
 
-(global-set-key [C-return] #'company-indent-or-complete-common)
-
-;;; Code navigation
-
+(global-set-key [C-return] #'company-complete-common-or-cycle)
+(global-set-key (kbd "s-.") 'company-files)
 
 
 (provide 'key-binding-settings)

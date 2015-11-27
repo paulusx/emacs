@@ -30,7 +30,8 @@
          (company-clang
           :with company-keywords
           :with company-yasnippet
-          :with company-irony
+          ;; :with company-irony
+          ;; :with company-semantic
           )
          ;;company-c-headers
          ;; company-semantic
@@ -40,7 +41,6 @@
   )
 
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
-
 
 ;; (require 'cc-mode)
 

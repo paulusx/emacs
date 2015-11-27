@@ -20,6 +20,7 @@
                                       "/app-easy-scan/libs/es-core/defs"
                                       "/lib-rendering/a3d"
                                       "/squid-conf/include"
+                                      "/transport/include"
                                       )
                       ;; :system-include-path '()
                       )
