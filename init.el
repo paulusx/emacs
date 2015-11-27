@@ -14,6 +14,7 @@
      (awk-mode . "awk")
      (other . "gnu"))))
  '(c-report-syntactic-errors nil)
+ '(column-number-mode t)
  '(company-auto-complete (quote (quote company-explicit-action-p)))
  '(company-backends
    (quote
@@ -41,11 +42,12 @@
  '(compilation-skip-threshold 2)
  '(compilation-skip-visited t)
  '(compile-command
-   "cd ~/projects/artecsdk/ && LANG= scons -f ~/projects/build-system/SConstruct --profiles-file=~/projects/build-system/profiles/linux.yaml -j13 --use-profile=fast-build  --module=artec-{base,scanning,capturing,algorithms}.test")
+   "cd ~/projects/ && time LANG= scons -f ~/projects/build-system/SConstruct --profiles-file=~/projects/build-system/profiles/linux.yaml -j13 --use-profile=fast-build --scan-dir=../app-easy-scan --scan-dir=. --scan-dir=../lib-rendering  --module=easy-scan ")
  '(custom-safe-themes
    (quote
     ("4ef489bd19f06c4784ad0a440b8dfe5ee32c761ccfa134830df119005feddf47" "c55b811819ce5868f43176bcbc23f8b569e495e1dd0f180beeba571649b9730b" "f364e75cdd1f0e6e6cf9db5c815712e28edb0f534909b13c95388d7f501ab0e0" "02ec9b95275c0f6b5d050c27017beacf55e6b69607759872271df070e573ceff" "b8035e71f1cfba8c9b35931c2e4953aa40aa998747a3a198480934b694ec3e94" "a51245cbca613c943213aceb3fbb638276b68ca37b9dbf08ddf422570bf88c2e" "e37044eff1939059a930158c43b3b2812a85f5104426ed619252bec773ac8cb9" "3aa586d937fc99992cd44d7d4aab284eeaf7323898e37e152d37ebc298229ebc" "55106d426099242e38daa86deabadb643313fbd84517326d2bfc48ab4d86458f" "0de269f129b765c9fe244c19c1ec9dfd6c66cee4179eb235aff1d3301e2121e0" "3d530d6dcdf26b4b2b68c18bfa8d8f927377a12cb75abf8768e0b818a19f782e" "cc371ea0ca0f879b99710b62dd3c9943fcc1c274efe45e9d2c578f9f93253930" "3c6e8fb18f82d2c4cf242c2e536b75eecd67257f95e73d618f98f0502fc81578" "165c7115443aabcc950ef1514a5c238c1b78cb743dc6df4f41a82a2d6e66c683" "5e6a55507bc922241a1fa50f095f15996493ef6d11c648fd7122ca83a577d717" "4b177ef60e53808453134546ff74656b2ded2bf7068a78467995255921b2ac5e" "31c7386bea6f51a5b799d8f456e08fc6dee5f59605c165562fc7c32a323b7f42" default)))
  '(ede-project-directories (quote ("/home/paulus/projects")))
+ '(eldoc-print-after-edit t)
  '(global-semantic-decoration-mode t)
  '(global-semantic-highlight-func-mode t)
  '(global-semantic-mru-bookmark-mode t)
@@ -59,8 +61,12 @@
  '(safe-local-variable-values
    (quote
     ((company-clang-arguments "-I/home/paulus/projects/artecsdk/ext/3dproc/include" "-I/home/paulus/projects/artecsdk/ext/cameras/include" "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include" "-I/home/paulus/projects/artecsdk/ext/engine/include" "-I/home/paulus/projects/artecsdk/ext/flyuart/include" "-I/home/paulus/projects/artecsdk/ext/tunecols/include" "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include" "-I/home/paulus/projects/artecsdk/ext/3drec/include" "-I/home/paulus/projects/artecsdk/algorithms/include" "-I/home/paulus/projects/artecsdk/base/include" "-I/home/paulus/projects/artecsdk/base/tref-sample/include" "-I/home/paulus/projects/artecsdk/capturing/include" "-I/home/paulus/projects/artecsdk/scanning/include" "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs" "-I /home/paulus/projects/lib-rendering/a3d"))))
+ '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(semantic-mode t)
+ '(semantic-python-dependency-system-include-path
+   (quote
+    ("/usr/lib/python3.5" "/usr/lib/python3.5/plat-linux" "/usr/lib/python3.5/lib-dynload" "/usr/lib/python3.5/site-packages" "/usr/lib/python2.7" "/usr/lib/python2.7/site-packages")))
  '(semanticdb-ebrowse-file-match "\\.\\(hh?\\|HH?\\|hpp\\|h\\)")
  '(semanticdb-project-roots
    (quote
@@ -79,6 +85,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(idle-highlight ((t (:inherit region :background "chartreuse"))))
+ '(semantic-highlight-func-current-tag-face ((t (:background "#ffffe0"))))
  '(semantic-tag-boundary-face ((t (:overline "white smoke")))))
 
 (add-to-list 'load-path "~/.emacs.d/lisp")

@@ -20,6 +20,9 @@
 
 (global-set-key [C-return] #'company-indent-or-complete-common)
 
+(global-set-key (kbd "s-i") 'idle-highlight-mode)
+
+
 ;;; Code navigation
 
 
