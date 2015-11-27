@@ -11,6 +11,23 @@
 (require 'c-common-settings)
 
 
+;; elisp
+(defun my/lisp-mode-hook ()
+;;  (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
+  ;; company-mode settings
+  (set (make-local-variable 'company-backends)
+       '(
+         (company-elisp
+          :with company-keywords
+          :with company-yasnippet
+          )
+         )
+       )
+  )
+
+
+(add-hook 'lisp-mode-hook 'my/lisp-mode-hook)
+
 
 ;; Python
 (setq auto-mode-alist
@@ -21,7 +38,19 @@
 
 ;;; customize company-mode
 (defun my/python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi)
+  (jedi-mode t)
+  (eldoc-mode t)
+  (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
+
+  ;; company-mode settings
+  (set (make-local-variable 'company-backends)
+       '(
+         (company-jedi
+          :with company-keywords
+          :with company-yasnippet
+          )
+         )
+       )
   )
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
