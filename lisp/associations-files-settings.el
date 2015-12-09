@@ -17,14 +17,10 @@
   ;; company-mode settings
   (set (make-local-variable 'company-backends)
        '(
-         (company-elisp
-          :with company-keywords
-          :with company-yasnippet
-          )
+         (company-elisp :with company-yasnippet)
          )
        )
   )
-
 
 (add-hook 'lisp-mode-hook 'my/lisp-mode-hook)
 
