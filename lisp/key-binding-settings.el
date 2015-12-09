@@ -18,23 +18,9 @@
 (global-set-key [s-right] 'windmove-right)
 (global-set-key [s-down] 'windmove-down)
 
-<<<<<<< HEAD
 (global-set-key [C-return] #'company-complete-common-or-cycle)
 (global-set-key (kbd "s-.") 'company-files)
-||||||| merged common ancestors
-(global-set-key [C-return] #'company-indent-or-complete-common)
-
-;;; Code navigation
-
-=======
-(global-set-key [C-return] #'company-indent-or-complete-common)
-
 (global-set-key (kbd "s-i") 'idle-highlight-mode)
-
-
-;;; Code navigation
-
->>>>>>> fdf792782915879bdc80aa4ce582d159f8fb7ded
 
 
 (provide 'key-binding-settings)

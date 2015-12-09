@@ -30,8 +30,7 @@
          (company-clang
           :with company-keywords
           :with company-yasnippet
-          ;; :with company-irony
-          ;; :with company-semantic
+          :with company-irony
           )
          ;;company-c-headers
          ;; company-semantic
@@ -42,8 +41,16 @@
 
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
 
-;; (require 'cc-mode)
+;; Qt
+(add-to-list 'auto-mode-alist
+             '("/usr/include/qt" . c++-mode))
 
+(semantic-add-system-include "/usr/include/qt" 'c++-mode)
+
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             "/usr/include/qt/QtCore/qconfig.h")
+(add-to-list 'semantic-lex-c-preprocessor-symbol-file
+             "/usr/include/qt/QtCore/qconfig-dist.h")
 
 
 ; (global-semantic-idle-scheduler-mode 1)
