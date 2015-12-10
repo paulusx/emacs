@@ -21,8 +21,11 @@
                                       "/lib-rendering/a3d"
                                       "/squid-conf/include"
                                       "/transport/include"
+                                      "/callibrations-manager/include"
                                       )
-                      ;; :system-include-path '()
+                      :system-include-path '("/usr/include/qt"
+                                             "/usr/include"
+                                             )
                       )
 
 (provide 'my-ede-project)

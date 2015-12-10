@@ -70,7 +70,7 @@
 (defun my/lisp-hook ()
   ;; company
   (set (make-local-variable 'company-backends)
-       '(company-elisp)
+       '((company-elisp))
        )
   )
 
@@ -87,5 +87,34 @@
        )
   )
 (add-hook 'protobuf-mode-hook 'my/protobuf-hook)
+
+
+;;; Configs
+(setq auto-mode-alist
+      (cons '("PKGBUILD" . conf-mode) auto-mode-alist))
+
+(defun my/config-hook ()
+  (set (make-local-variable 'company-backends)
+       '(
+         (company-dabbrev)
+         )
+       )
+  )
+(add-hook 'conf-mode-hook 'my/config-hook)
+
+
+;;; QML
+(setq auto-mode-alist
+      (cons '("\\.qml" . qml-mode) auto-mode-alist))
+
+(defun my/qml-hook ()
+  (set (make-local-variable 'company-backends)
+       '(
+         (company-qml) (company-keywords) (company-dabbrev))
+       )
+
+  )
+(add-hook 'qml-mode-hook 'my/qml-hook)
+
 
 (provide 'associations-files-settings)

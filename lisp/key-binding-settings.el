@@ -19,8 +19,34 @@
 (global-set-key [s-down] 'windmove-down)
 
 (global-set-key [C-return] #'company-complete-common-or-cycle)
+<<<<<<< 047203740941eb7d396a2e8ca88237260a41d6fc
 (global-set-key (kbd "s-.") 'company-files)
+||||||| merged common ancestors
+(global-set-key (kbd "s-.") 'company-files)
+||||||| merged common ancestors
+(global-set-key [C-return] #'company-indent-or-complete-common)
+
+;;; Code navigation
+
+=======
+(global-set-key [C-return] #'company-indent-or-complete-common)
+
+=======
+
+(global-set-key (kbd "s-.") 'company-files)
+
+>>>>>>> update
 (global-set-key (kbd "s-i") 'idle-highlight-mode)
 
+<<<<<<< 047203740941eb7d396a2e8ca88237260a41d6fc
 
+||||||| merged common ancestors
+
+;;; Code navigation
+
+>>>>>>> fdf792782915879bdc80aa4ce582d159f8fb7ded
+
+
+=======
+>>>>>>> update
 (provide 'key-binding-settings)

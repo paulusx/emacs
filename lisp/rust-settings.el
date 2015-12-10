@@ -4,9 +4,8 @@
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
-
-(setq racer-cmd "~/.emacs.d/racer/target/release/racer")
 (setq racer-rust-src-path "/home/paulus/projects/rust/src")
+(setq racer-cmd "/home/paulus/.emacs.d/racer/target/release/racer")
 
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)

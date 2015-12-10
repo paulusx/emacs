@@ -16,6 +16,7 @@
 (require 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/5.2.0/")
 (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include/")
+(add-to-list 'company-c-headers-path-system "/usr/include/qt/")
 
 (require 'semantic/ia)
 (require 'semantic/bovine)
