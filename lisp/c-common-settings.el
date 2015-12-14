@@ -27,7 +27,7 @@
 (defun my/c-mode-common-hook ()
   ;; Key bidnings settings
   (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
-  ;;(local-set-key (kbd "s-/") 'senator-fold-tag-toggle)
+  (local-set-key (kbd "s-q") 'semantic-analyze-proto-impl-toggle)
   (local-set-key (kbd "s-/") 'company-c-headers)
   (irony-mode 1)
   ;; company
