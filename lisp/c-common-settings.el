@@ -29,14 +29,13 @@
   (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
   ;;(local-set-key (kbd "s-/") 'senator-fold-tag-toggle)
   (local-set-key (kbd "s-/") 'company-c-headers)
+  (irony-mode 1)
   ;; company
   (set (make-local-variable 'company-backends)
        '(
          ;;(company-clang)
-         (company-semantic)
+         (company-semantic :with company-keywords :with company-yasnippet :with company-irony)
          ;; (company-gtags)
-         ;; :with company-yasnippet
-         (company-irony)
          ;;company-c-headers
          ;;
          ;;

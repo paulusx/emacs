@@ -13,16 +13,17 @@
 
 ;; elisp
 (defun my/lisp-mode-hook ()
-;;  (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
+  (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
   ;; company-mode settings
   (set (make-local-variable 'company-backends)
        '(
          (company-elisp :with company-yasnippet)
          )
-       )
+    )
+  (eldoc-mode t)
   )
 
-(add-hook 'lisp-mode-hook 'my/lisp-mode-hook)
+(add-hook 'emacs-lisp-mode-hook 'my/lisp-mode-hook)
 
 
 ;; Python
@@ -66,17 +67,6 @@
 
 (add-hook 'rust-mode-hook 'my/rust-mode-hook)
 
-;;; Lisp
-(defun my/lisp-hook ()
-  ;; company
-  (set (make-local-variable 'company-backends)
-       '((company-elisp))
-       )
-  )
-
-
-(add-hook 'lisp-mode-hook 'my/lisp-hook)
-
 ;;; Protobuf
 
 (defun my/protobuf-hook ()
@@ -108,10 +98,11 @@
       (cons '("\\.qml" . qml-mode) auto-mode-alist))
 
 (defun my/qml-hook ()
-  (set (make-local-variable 'company-backends)
-       '(
-         (company-qml) (company-keywords) (company-dabbrev))
-       )
+  (setq (make-local-variable 'company-backends)
+    '(
+       (company-qml) (company-keywords) (company-dabbrev))
+    )
+  (eldoc-mode t)
 
   )
 (add-hook 'qml-mode-hook 'my/qml-hook)
