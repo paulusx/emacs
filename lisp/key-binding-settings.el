@@ -12,11 +12,14 @@
 (global-set-key (kbd "s-a") 'windmove-left)
 (global-set-key (kbd "s-d") 'windmove-right)
 (global-set-key (kbd "s-s") 'windmove-down) 
+(global-set-key (kbd "s-e") 'other-frame)
 
 (global-set-key [s-up] 'windmove-up)
 (global-set-key [s-left] 'windmove-left)
 (global-set-key [s-right] 'windmove-right)
 (global-set-key [s-down] 'windmove-down)
+
+
 
 (global-set-key (kbd "s-i") 'idle-highlight-mode)
 

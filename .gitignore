@@ -3,6 +3,7 @@
 .#*
 #*#
 *~
+*pyc
 session.*
 abbrev_defs
 ac-comphist.dat
@@ -12,3 +13,6 @@ tramp
 tutorial/
 url/
 elpa/archives/
+irony/
+places
+server
