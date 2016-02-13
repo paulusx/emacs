@@ -108,4 +108,9 @@
 (add-hook 'qml-mode-hook 'my/qml-hook)
 
 
+;;; qrc as XML
+(setq auto-mode-alist
+      (cons '("\\.qrc" . xml-mode) auto-mode-alist))
+
+
 (provide 'associations-files-settings)
