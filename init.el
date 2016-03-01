@@ -50,7 +50,6 @@
  '(ede-project-directories (quote ("/home/paulus/projects")))
  '(eldoc-minor-mode-string " ElDoc")
  '(eldoc-print-after-edit t)
- '(emacs-lisp-mode-hook (quote (ert--activate-font-lock-keywords)))
  '(global-semantic-decoration-mode nil)
  '(global-semantic-highlight-func-mode t)
  '(global-semantic-mru-bookmark-mode t)
