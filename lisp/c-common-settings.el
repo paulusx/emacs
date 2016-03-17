@@ -16,7 +16,7 @@
 
 
 (require 'company-c-headers)
-(add-to-list 'company-c-headers-path-system "/usr/include/c++/5.2.0/")
+(add-to-list 'company-c-headers-path-system "/usr/include/c++/5.3.0/")
 (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include/")
 (add-to-list 'company-c-headers-path-system "/usr/include/qt/")
 (add-to-list 'company-c-headers-path-system "/home/paulus/projects/app-easy-scan/libs/sdk/ext/3dproc/include")
@@ -51,12 +51,13 @@
   (local-set-key (kbd "s-j") 'semantic-ia-fast-jump)
   (local-set-key (kbd "s-q") 'semantic-analyze-proto-impl-toggle)
   (local-set-key (kbd "s-/") 'company-c-headers)
+  (local-set-key (kbd "s-v") 'semantic-decoration-include-visit)
   (irony-mode 1)
   ;; company
   (set (make-local-variable 'company-backends)
        '(
          ;;(company-clang)
-         (company-semantic :with company-keywords :with company-yasnippet :with company-irony)
+         (company-semantic :with company-keywords :with company-yasnippet)
          ;; (company-gtags)
          ;;company-c-headers
          ;;

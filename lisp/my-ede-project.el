@@ -26,6 +26,8 @@
                    "/app-easy-scan/libs/callibration-manager/include"
                    "/app-easy-scan/threeparts/quazip/quazip"
                    "/app-neue-scan/libs/uncore/include"
+                   "/app-astudio/astudio/source/"
+                   "/app-astudio/astudio-data/include/"
                    )
   :system-include-path '( "/usr/include/qt"
                           "/usr/include"
@@ -86,6 +88,8 @@
                           "/usr/include/qt/QtXml"
                           "/usr/include/qt/QtXmlPatterns"
                           "/usr/include/qt/"
+                          "/usr/include/wx-2.8"
+                          "/usr/lib/wx/include/gtk2-unicode-release-2.8"
                           )
   )
 

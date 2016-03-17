@@ -8,6 +8,9 @@
 (global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
 (global-set-key "\C-cc" 'comment-or-uncomment-region)
 
+(global-set-key (kbd "s-<") 'goto-last-change-with-auto-marks)
+(global-set-key (kbd "s->") 'goto-last-change-reverse)
+
 (global-set-key (kbd "s-w") 'windmove-up)
 (global-set-key (kbd "s-a") 'windmove-left)
 (global-set-key (kbd "s-d") 'windmove-right)
@@ -21,7 +24,10 @@
 
 
 
+
 (global-set-key (kbd "s-i") 'idle-highlight-mode)
+
+
 
 (global-set-key [C-return] #'company-complete-common-or-cycle)
 (global-set-key (kbd "s-.") 'company-files)

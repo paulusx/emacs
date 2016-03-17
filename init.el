@@ -36,9 +36,7 @@
  '(company-tooltip-offset-display (quote lines))
  '(compilation-always-kill t)
  '(compilation-ask-about-save nil)
-  '(compilation-search-path
-     (quote
-       (nil "~/sshfs/projects/artecsdk/" "~/sshfs/projects/lib-rendering/" "~/sshfs/projects/app-easy-scan/" "~/mac/projects" "~/sshfs")))
+ '(compilation-search-path (quote (nil "~/sshfs/projects/")))
  '(compilation-skip-threshold 2)
  '(compilation-skip-visited t)
   '(compile-command
