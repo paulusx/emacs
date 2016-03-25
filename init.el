@@ -40,7 +40,8 @@
  '(compilation-skip-threshold 2)
  '(compilation-skip-visited t)
   '(compile-command
-     "cd ~/projects/ && time LANG= scons -f app-easy-scan/utils/build/SConstruct --profiles-file=app-easy-scan/utils/build/profiles/linux.yaml -j13 --use-profile=fast-build --scan-dir=app-easy-scan  --module=easy-scan ")
+     "cd ~/projects/ && time LANG= scons -f app-easy-scan/utils/build/SConstruct --profiles-file=app-easy-scan/utils/build/profiles/linux.yaml -j13 --use-profile=release --scan-dir=app-easy-scan  --module=test-pipeline \\
+ && echo -e '\\n\\n******** Run Tests *******\\n\\n' && ./output/release/bin/test-pipeline")
  '(cursor-in-non-selected-windows nil)
   '(custom-safe-themes
      (quote
@@ -63,6 +64,9 @@
  '(jenkins-login-url nil)
  '(lisp-indent-offset 2)
  '(lisp-interaction-mode-hook (quote (eldoc-mode)))
+ '(nxml-auto-insert-xml-declaration-flag t)
+ '(nxml-default-buffer-file-coding-system (quote utf-8))
+ '(nxml-slash-auto-complete-flag t)
  '(python-shell-interpreter "python2")
   '(safe-local-variable-values
      (quote
