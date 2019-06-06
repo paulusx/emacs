@@ -7,3 +7,4 @@ groovy-language-server/*
 ido.last
 server/*
 tramp
+url/*

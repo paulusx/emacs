@@ -1,7 +1,5 @@
-
-
-(require 'customize-common-c)
 (require 'customize-rust)
+(require 'customize-common-c)
 (require 'customize-python)
 
 ;; C++
@@ -18,6 +16,10 @@
 	  (cons '("\\.inl" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist
 	  (cons '("\\.glsl" . c++-mode) auto-mode-alist))
+
+;; Rust
+(setq auto-mode-alist
+	  (cons '("\\.rs" . rustic-mode) auto-mode-alist))
 
 
 (require 'capnp-mode)

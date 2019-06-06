@@ -5,11 +5,10 @@
 
 (defun my/c++-mode-hook ()
   (yafolding-mode t)
-  (flymake-mode nil)
+  (flymake-mode 0)
   (flycheck-mode t)
   )
 
-(use-package lsp-mode :commands lsp)
 (require 'lsp-clients)
 
 (use-package lsp-ui :commands lsp-ui-mode

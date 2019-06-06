@@ -10,7 +10,7 @@
 ;;; содержит не очень свежие версии, поэтому иногда лучше ставить
 ;;; пакеты из основного репозитория.
 
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;; (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
 (setq package-enable-at-startup nil)
 (package-initialize nil)
@@ -49,6 +49,10 @@
 ;;; А здесь EMACS хранит настройки, задаваемые через customize
 (setq custom-file "~/.emacs.d/customize.el")
 (load-user-file "customize.el")
+
+(with-eval-after-load 'lsp-mode
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+  (require 'lsp-rust))
 
 (require 'customize-theme)
 (require 'customize-personal)
