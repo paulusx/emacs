@@ -18,9 +18,14 @@
 	  (cons '("\\.glsl" . c++-mode) auto-mode-alist))
 
 ;; Rust
-(setq auto-mode-alist
-	  (cons '("\\.rs" . rustic-mode) auto-mode-alist))
-
+ (setq auto-mode-alist
+    (cons '("\\.rs" . rustic-mode)
+      (assq-delete-all
+        (car (rassoc 'rust-mode auto-mode-alist))
+        (assq-delete-all
+          (car (rassoc 'rustic-mode auto-mode-alist))
+          auto-mode-alist)))
+   )
 
 (require 'capnp-mode)
 (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))

@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(bm-buffer-persistence t)
  '(bm-repository-size 1000)
- '(c++-mode-hook nil)
+ '(c++-mode-hook nil t)
  '(c-backslash-column (quote set-from-style))
  '(c-backslash-max-column 120)
   '(c-default-style
@@ -101,7 +101,7 @@
  '(nxml-slash-auto-complete-flag t)
   '(package-selected-packages
      (quote
-       (rustic mmm-jinja2 jinja2-mode ws-butler ws-buttler yafolding aj-toggle-fold yaml-mode lsp-groovy ccls lsp-imenu capnp-mode councel consuel racer-mode raceer-mode idle-highlight-in-visible-buffers-mode idle-highlight smart-dash-mode company-lsp lsp-clients sp-clients flycheck flycheck-mode fly-check lsp-mode undo-tree indent-guide mode-icons smartparens yasnippet-snippets validate yasnippet rainbow-delimiters groovy-mode lsp-clangd lsp-css lsp-go lsp-haskell lsp-html lsp-javascript-flow lsp-python lsp-rust lsp-sh lsp-vue lsp-ui ag counsel counsel-tramp javap-mode jenkins-watch groovy-imports smart-mode-line powerline smooth-scrolling swiper nurumacs dts-mode goto-last-change goto-chg bm clang-format graphviz-dot-mode sass-mode stylus-mode pug-mode vue-mode idle-highlight-mode systemd nand2tetris vhdl-capf vhdl-tools ninja-mode rjsx-mode rust-playground react-snippets jade-mode company-web company-rtags rtags eagle-eye emacs-home emojify flycheck-vala flycheck-ycmd company-ycmd rustfmt js3-mode json jss toml-mode qml-mode flycheck-irony irony-eldoc irony fish-mode x-path-walker cuda-mode flycheck-rust highlight-parentheses hexrgb edit-color-stamp jenkins zone-nyan sr-speedbar racer protobuf-mode markdown-mode+ json-mode helm-gtags helm-fuzzier gist function-args ecb diffview diffscuss-mode csv-mode company-racer company-qml company-jedi company-irony company-flx company-cmake company-c-headers cmake-mode cargo butler)))
+       (cargo rustic mmm-jinja2 jinja2-mode ws-butler ws-buttler yafolding aj-toggle-fold yaml-mode lsp-groovy ccls lsp-imenu capnp-mode councel consuel racer-mode raceer-mode idle-highlight-in-visible-buffers-mode idle-highlight smart-dash-mode company-lsp lsp-clients sp-clients flycheck flycheck-mode fly-check lsp-mode undo-tree indent-guide mode-icons smartparens yasnippet-snippets validate yasnippet rainbow-delimiters groovy-mode lsp-clangd lsp-css lsp-go lsp-haskell lsp-html lsp-javascript-flow lsp-python lsp-rust lsp-sh lsp-vue lsp-ui ag counsel counsel-tramp javap-mode jenkins-watch groovy-imports smart-mode-line powerline smooth-scrolling swiper nurumacs dts-mode goto-last-change goto-chg bm clang-format graphviz-dot-mode sass-mode stylus-mode pug-mode vue-mode idle-highlight-mode systemd nand2tetris vhdl-capf vhdl-tools ninja-mode rjsx-mode rust-playground react-snippets jade-mode company-web company-rtags rtags eagle-eye emacs-home emojify flycheck-vala flycheck-ycmd company-ycmd rustfmt js3-mode json jss toml-mode qml-mode flycheck-irony irony-eldoc irony fish-mode x-path-walker cuda-mode flycheck-rust highlight-parentheses hexrgb edit-color-stamp jenkins zone-nyan sr-speedbar racer protobuf-mode markdown-mode+ json-mode helm-gtags helm-fuzzier gist function-args ecb diffview diffscuss-mode csv-mode company-racer company-qml company-jedi company-irony company-flx company-cmake company-c-headers cmake-mode butler)))
  '(prog-mode-hook (quote (linum-mode prettify-symbols-mode)))
  '(project-vc-ignores (quote ("~/projecs/*")))
  '(pug-tab-width 2)
