@@ -169,4 +169,7 @@
 ;;; groovy and enkinsfile
 (use-package groovy-mode)
 
+;;; CMake
+(use-package cmake-mode)
+
 (provide 'customize-files-type)

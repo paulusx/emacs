@@ -9,6 +9,7 @@
   (flycheck-mode t)
   )
 
+(use-package lsp-mode)
 (require 'lsp-clients)
 
 (use-package lsp-ui :commands lsp-ui-mode

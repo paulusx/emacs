@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(bm-buffer-persistence t)
  '(bm-repository-size 1000)
- '(c++-mode-hook nil t)
+ '(c++-mode-hook nil)
  '(c-backslash-column (quote set-from-style))
  '(c-backslash-max-column 120)
   '(c-default-style
