@@ -68,7 +68,7 @@
  '(graphviz-dot-preview-extension "svg")
  '(graphviz-dot-view-command "doted -Tsvg %s")
  '(graphviz-dot-view-edit-command t)
- '(groovy-indent-offset 2)
+ '(groovy-indent-offset 4)
  '(hide-ifdef-initially t)
  '(hide-ifdef-shadow t)
  '(indent-tabs-mode nil)

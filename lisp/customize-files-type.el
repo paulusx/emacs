@@ -167,9 +167,14 @@
 
 
 ;;; groovy and enkinsfile
+
+
 (use-package groovy-mode)
 
 ;;; CMake
 (use-package cmake-mode)
+
+;;; systemd unit
+(use-package systemd)
 
 (provide 'customize-files-type)
