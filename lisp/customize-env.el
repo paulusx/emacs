@@ -1,13 +1,12 @@
 (setq exec-path (append exec-path '("/home/paulus/.cargo/bin" "/opt/cuda/bin")))
 
 (setenv "RUST_SRC_PATH" "/home/paulus/projects/rust/src")
-(setenv "ARCH_AARCH64_COMPONENTS_ROOT" "/media/storage/toolchains/current/aarch64-cross")
+(setenv "ARCH_AARCH64_COMPONENTS_ROOT" "/media/storage-3T/toolctl/toolchains/current/aarch64-cross")
 (setenv "LEELOO_MAIN_QML" "/home/paulus/projects/pkg-leeloo/modules/ui/source/qml/Main.qml")
 (setenv "LEELOO_QML_COMPONENTS" "/home/paulus/projects/pkg-leeloo/modules/ui/common-ui/rootfs-data/etc/artec/leeloo/ui")
 (setenv "LEELOO_TESTDATA" "/media/fast-storage/testdata")
 (setenv "CUDA_DIR" "/opt/cuda")
 (setenv "MAGICK_OCL_DEVICE" "OFF")
-
 
 (setenv "ARTEC_BS_SM_GENERATOR"
   "/home/paulus/projects/pkg-leeloo/modules/sm/generator/generator.py")
