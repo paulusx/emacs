@@ -13,19 +13,29 @@
       (cons '("\\.hpp$" . c++-mode) auto-mode-alist))
 
 (setq auto-mode-alist
-	  (cons '("\\.inl" . c++-mode) auto-mode-alist))
+	  (cons '("\\.inl$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist
-	  (cons '("\\.glsl" . c++-mode) auto-mode-alist))
+	  (cons '("\\.glsl$" . c++-mode) auto-mode-alist))
+;; template C++
+
+(use-package mmm-jinja2)
+
+
+(mmm-add-mode-ext-class nil "\\.template." 'jinja2)
+(setq auto-mode-alist
+  (cons '("\\.template.cc$" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist
+  (cons '("\\.jinja2.cc$" . c++-mode) auto-mode-alist))
 
 ;; Rust
- (setq auto-mode-alist
-    (cons '("\\.rs" . rustic-mode)
-      (assq-delete-all
-        (car (rassoc 'rust-mode auto-mode-alist))
-        (assq-delete-all
-          (car (rassoc 'rustic-mode auto-mode-alist))
-          auto-mode-alist)))
-   )
+ ;; (setq auto-mode-alist
+ ;;    (cons '("\\.rs" . rustic-mode)
+ ;;      (assq-delete-all
+ ;;        (car (rassoc 'rust-mode auto-mode-alist))
+ ;;        (assq-delete-all
+ ;;          (car (rassoc 'rustic-mode auto-mode-alist))
+ ;;          auto-mode-alist)))
+ ;;   )
 
 (require 'capnp-mode)
 (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
@@ -43,6 +53,25 @@
 (add-hook 'capnp-mode-hook 'my/capnp-mode-hook)
 
 ;; js
+(setq exec-path (append exec-path '("~/.node_modules/bin/")))
+(setq lsp-prefer-flymake nil)
+;;(use-package typescript-mode :ensure t)
+
+(use-package js2-mode :ensure t
+  :config (progn
+            (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+            (add-to-list 'lsp-language-id-configuration '(js2-mode . "javascript"))
+            )
+
+  :hook (js2-mode . (lambda ()
+                      (lsp)
+                      )
+          )
+  )
+
+(setq lsp-print-io t)
+(setq lsp-trace t)
+(setq lsp-print-performance t)
 
 (use-package vue-mode
   :config
@@ -130,11 +159,20 @@
 
 
 ;;; QML
+(use-package company-qml)
 (use-package
   qml-mode
   :init (progn
           ;; (setq auto-mode-alist (cons '("\\.qml" . qml-mode) auto-mode-alist))
           
+          )
+  :hook (qml-mode .
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 4)
+            (add-to-list 'company-backends 'company-qml)
+            (company-mode)
+            )
           )
   )
 ;; (defun my/qml-hook ()
@@ -176,5 +214,41 @@
 
 ;;; systemd unit
 (use-package systemd)
+
+;;; openscad
+(use-package scad-mode
+  :config (progn
+;;            (use-package scad-preview)
+;;            (scad-preview-mode)
+;;            (bind-key (kbd "s-kp-right") scad-preview-roty+)
+            )
+  :bind (
+          ;;("s-kp-right" . scad-preview-roty+)
+          ;; ("s-kp-left;" . scad-preview-roty-)
+          ;; ("s-kp-up" . scad-preview-rotx-)
+          ;; ("s-kp-down;" . scad-preview-rotx+)
+
+          )
+  )
+
+;;; i3 config
+(use-package i3wm-config-mode)
+
+;; flutter
+(use-package flutter)
+(use-package flutter-l10n-flycheck)
+(use-package dart-mode)
+(use-package dart-server)
+(use-package lsp-dart
+  :ensure t
+  :hook (dart-mode . lsp))
+;;; cuda
+(use-package cuda-mode)
+
+
+(use-package nginx-mode)
+(use-package company-nginx)
+
+(use-package arduino-mode)
 
 (provide 'customize-files-type)

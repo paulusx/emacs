@@ -67,5 +67,8 @@
 ;;   :config (global-undo-tree-mode 1))
 
 
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+
 (provide 'customize-personal)
 
