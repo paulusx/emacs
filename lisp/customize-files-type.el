@@ -35,7 +35,8 @@
 (setq lsp-prefer-flymake nil)
 ;;(use-package typescript-mode :ensure t)
 
-(use-package js2-mode :ensure t
+(use-package js2-mode
+  :ensure t
   :config (progn
             (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
             (add-to-list 'lsp-language-id-configuration '(js2-mode . "javascript"))
@@ -202,6 +203,8 @@
 
 (add-hook 'org-mode-hook 'my/org-mode-hook)
 
+
+
 ;;; UML
 (use-package plantuml-mode)
 (use-package flycheck-plantuml)
@@ -209,5 +212,19 @@
 ;;; Maxima
 (use-package maxima)
 (use-package company-maxima)
+
+;;; GLSL
+(use-package company-glsl)
+(use-package glsl-mode
+  :ensure t
+  :config (progn
+            (add-to-list 'auto-mode-alist '("\\.glsl" . glsl-mode))
+            )
+
+  :hook (glsl-mode . (lambda ()
+                      (lsp)
+                      )
+          )
+  )
 
 (provide 'customize-files-type)

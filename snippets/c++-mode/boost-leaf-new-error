@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: boost-leaf-new-error
+# key: blne
+# --
+
+return BOOST_LEAF_NEW_ERROR(std::runtime_error(fmt::format("", $0)));

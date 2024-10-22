@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: pragam once M$
+# key: once
+# --
+
+#pragma once
+$0

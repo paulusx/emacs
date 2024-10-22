@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: x-macro
+# key: xmacro
+# --
+
+#define X(${1:Args}) $0
+// muliline guard
+#include <${2:Header}>
+#undef X

@@ -10,15 +10,15 @@
 (setenv "MAGICK_OCL_DEVICE" "OFF")
 
 (setenv "ARTEC_BS_SM_GENERATOR"
-  "/home/paulus/projects/pkg-leeloo/modules/sm/generator/generator.py")
+  "/home/paulus/projects/pkg-leeloo/modules/state-machine/generator/generator.py")
 (setenv "ARTEC_BS_SM_TEST_CONFIG_FILE"
-  "/home/paulus/projects/pkg-leeloo/modules/sm/generator/configs/test-statemachine.yaml")
+  "/home/paulus/projects/pkg-leeloo/modules/config-leo/state-machine/configs/leeloo-statemachine.yaml")
 (setenv "ARTEC_BS_SM_CONFIG_FILE"
-  "/home/paulus/projects/pkg-leeloo/modules/sm/generator/configs/leeloo-statemachine.yaml")
+  "/home/paulus/projects/pkg-leeloo/modules/config-leo/state-machine/configs/leeloo-statemachine.yaml")
 (setenv "ARTEC_BS_PROJECT_MANAGER_DBUS_INTROSPECTIONS_DIR"
   "/home/paulus/projects/pkg-leeloo/modules/project-manager/xml/")
 (setenv "ARTEC_BS_SM_DBUS_INTROSPECTIONS_DIR"
-  "/home/paulus/projects/pkg-leeloo/modules/sm/xml/")
+  "/home/paulus/projects/pkg-leeloo/modules/state-machine/xml/")
 (setenv "ARTEC_BS_LEELOO_UI_INTROSPECTION"
   "/home/paulus/projects/pkg-leeloo/modules/ui/xml/IControl.xml")
 (setenv "ARTEC_BS_LEELOO_MA_STATUS_INFO_DAEMON_INTROSPECTION"
@@ -37,6 +37,14 @@
   "/home/paulus/projects/pkg-leeloo/modules/firmware-update-lib/utils/fpga-control/xml/FPGAControl.xml")
 (setenv "ARTEC_BS_LEELOO_TARGET_CLOUD_MANAGER_INTROSPECTION"
   "/home/paulus/projects/pkg-leeloo/modules/target-cloud-manager/xml/ITargetCloudManager.xml")
+(setenv "ARTEC_BS_PROFILE_NAME"
+  "host-ext-qml")
+(setenv "ARTEC_BS_LEO_DISPLAY_IMAGE_LIB_PATH"
+  "/home/paulus/projects/output/host-ext-qml/lib")
+(setenv "ARTEC_BS_LEO_DISPLAY_IMAGE_LIB_NAME"
+  "leeloo-leo-display-image-channel")
+(setenv "ARTEC_BS_LEO_DISPLAY_IMAGE_HEADERS"
+  "/home/paulus/projects/pkg-leeloo/modules/display-image-channel/leo/leo-image-channel-clib/include/leo-display-image/c-wrapper/publisher.h:/home/paulus/projects/pkg-leeloo/modules/display-image-channel/leo/leo-image-channel-clib/include/leo-display-image/c-wrapper/display-data-config.h")
 
 
 (provide 'customize-env)

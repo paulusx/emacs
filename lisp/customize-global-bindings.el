@@ -49,5 +49,6 @@
 (global-set-key [C-return] #'company-complete-common-or-cycle)
 (global-set-key (kbd "s-/") 'company-files)
 
+(global-set-key (kbd "s-'") 'string-inflection-all-cycle)
 
 (provide 'customize-global-bindings)

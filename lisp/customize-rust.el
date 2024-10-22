@@ -43,8 +43,9 @@
 
   (set (make-local-variable 'company-backends) (list (list 'company-capf :with 'company-yasnippet)))
 
-  (push '("->" . ?→) prettify-symbols-alist)
-  (push '("=>" . ?⇒) prettify-symbols-alist)
+  (set (make-local-variable 'prettify-symbols-alist) (list '("->" . ?→) '("=>" . ?⇒)))
+  ;; (push '("->" . ?→) prettify-symbols-alist)
+  ;; (push '("=>" . ?⇒) prettify-symbols-alist)
 
   (prettify-symbols-mode t)
   )

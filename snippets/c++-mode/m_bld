@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: leaf-builder
+# key: lbld
+# --
+
+static boost::leaf::result<${1:Name}> build($0) noexcept
+{
+
+}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: boost-leaf-check
+# key: blc
+# --
+
+auto ${1:var} = BOOST_LEAF_CHECK($0);
