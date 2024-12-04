@@ -106,12 +106,13 @@
  '(lsp-clangd-version "16.0.0")
  '(lsp-clients-clangd-args
     '("--header-insertion-decorators=0" "--clang-tidy" "--pch-storage=disk" "-j=4"))
+ '(lsp-dart-closing-labels-prefix "←")
+ '(lsp-dart-closing-labels-size 0.8)
  '(lsp-dart-dap-debugger-path "")
- '(lsp-dart-flutter-executable "/opt/flutter/bin/flutter")
- '(lsp-dart-flutter-sdk-dir "/opt/flutter/")
+ '(lsp-dart-flutter-sdk-dir "/home/paulus/.local/share/flutterup/")
  '(lsp-dart-project-root-discovery-strategies '(closest-pubspec lsp-root))
- '(lsp-dart-sdk-dir "/opt/flutter/bin/")
- '(lsp-dart-server-command '("/opt/flutter/bin/dart" "language-server"))
+ '(lsp-dart-sdk-dir "/home/paulus/.local/share/flutterup/")
+ '(lsp-dart-server-command '("dart" "language-server" "--diagnostic-port=8810"))
  '(lsp-glsl-executable '("glsl_analyzer" "--stdio"))
  '(lsp-groovy-classpath ["/usr/share/groovy/lib/"])
  '(lsp-groovy-server-file
@@ -162,7 +163,7 @@
  '(org-modules
     '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe org-mouse ol-rmail org-tempo ol-w3m))
  '(package-selected-packages
-    '(rust-playground dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company lsp-ui company hover))
+    '(flutter-l10n-flycheck flutter dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company lsp-ui company hover))
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-indent-level 4)
  '(plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
@@ -210,7 +211,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "white" :foreground "gray15" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 82 :width normal :foundry "unknown" :family "monofur"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "white" :foreground "gray15" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 110 :width normal :foundry "unknown" :family "monofur"))))
  '(blamer-face ((t (:inherit font-lock-variable-name-face :slant normal :weight regular :height 0.8 :width normal :foundry "unknown" :family "monofur"))))
  '(blamer-pretty-commit-message-face ((t (:inherit font-lock-string-face :slant normal :height 0.8))))
  '(bm-face ((t (:overline "dark green"))))
@@ -232,6 +233,7 @@
  '(indent-guide-face ((t (:foreground "#cceeff" :slant normal))))
  '(js2-external-variable ((t (:foreground "dark red"))))
  '(js2-object-property ((t (:inherit default :foreground "navy"))))
+ '(lsp-dart-code-lens-separator ((t (:height 0.6))))
  '(lsp-face-highlight-read ((t (:background "#eeffcc"))))
  '(lsp-flycheck-warning-unnecessary-face ((t (:foreground "gray" :underline "aquamarine"))) t)
  '(lsp-ui-doc-background ((t (:background "azure1"))))

@@ -116,6 +116,10 @@
 (use-package blamer)
 (use-package syncthing)
 
+(use-package magit)
+(use-package websocket)
+(use-package ibrowse)
+
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."

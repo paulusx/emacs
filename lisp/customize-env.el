@@ -45,6 +45,8 @@
   "leeloo-leo-display-image-channel")
 (setenv "ARTEC_BS_LEO_DISPLAY_IMAGE_HEADERS"
   "/home/paulus/projects/pkg-leeloo/modules/display-image-channel/leo/leo-image-channel-clib/include/leo-display-image/c-wrapper/publisher.h:/home/paulus/projects/pkg-leeloo/modules/display-image-channel/leo/leo-image-channel-clib/include/leo-display-image/c-wrapper/display-data-config.h")
+(setenv "ARTEC_BS_LEELOO_CUBEMAP_VISUALIZER_DBUS_INTROSPECTION" "/home/paulus/projects/pkg-leeloo/modules/cubemap-visualizer/app/dbus-introspection/ICubemapsVisualizerControl.xml")
+
 
 
 (provide 'customize-env)
