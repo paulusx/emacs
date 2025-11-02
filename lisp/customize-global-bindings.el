@@ -31,10 +31,18 @@
           )
   )
 
+(defun open-file-at-point ()
+  "Open the file path under cursor."
+  (interactive)
+  (let ((path (thing-at-point 'filename)))
+    (when path
+      (find-file path))))
+
+(global-set-key (kbd "s-o") 'open-file-at-point)
 (global-set-key (kbd "s-w") 'windmove-up)
 (global-set-key (kbd "s-a") 'windmove-left)
 (global-set-key (kbd "s-d") 'windmove-right)
-(global-set-key (kbd "s-s") 'windmove-down) 
+(global-set-key (kbd "s-s") 'windmove-down)
 (global-set-key (kbd "s-e") 'other-frame)
 (global-set-key (kbd "s-g") 'counsel-rg)
 

@@ -36,10 +36,13 @@
     (setq-local buffer-save-without-query t))
 
   (local-set-key (kbd "s-j") 'lsp-find-definition)
-  (local-set-key (kbd "s-z") 'rustic-cargo-build)
+  (local-set-key (kbd "s-Z") 'rustic-cargo-build)
+  ;;(local-set-key (kbd "s-z") 'compile)
   (local-set-key (kbd "C-c r t") 'rustic-cargo-test)
   (local-set-key (kbd "C-c r c") 'rustic-cargo-clippy)
   (local-set-key (kbd "C-c r r") 'rustic-cargo-run)
+  (local-set-key (kbd "C-c r z") 'rustic-cargo-build)
+
 
   (set (make-local-variable 'company-backends) (list (list 'company-capf :with 'company-yasnippet)))
 

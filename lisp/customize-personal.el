@@ -24,10 +24,7 @@
 (use-package counsel :ensure t)
 (use-package idle-highlight-mode :ensure t)
 (use-package yasnippet-snippets :ensure t)
-(use-package ws-butler
-  :ensure t
-  :config (ws-butler-global-mode)
-  )
+
 
 (use-package yasnippet                  ; Snippets
   :ensure t
@@ -141,6 +138,37 @@
 
 ;; (global-set-key (kbd "C-c r") 'rename-current-buffer-file)
 
+(defun to-ansi-color (&optional beg end)
+  "Interpret ANSI color esacape sequence by colorifying cotent.
+Operate on selected region on whole buffer."
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+(ansi-color-apply-on-region beg end))
+
+(ignore-errors
+  (require 'ansi-color)
+  (defun my-colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
+
+;;; WhiteSpaces clean-up
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;;; open URL in browser
+(global-set-key (kbd "C-c b") 'browse-url-at-point)
+
+(defun my-prog-hook () ""
+  (progn
+    (flyspell-prog-mode)
+    (auto-revert-mode t)
+    ))
+
+(add-hook 'prog-mode-hook 'my-prog-hook)
+
+(use-package ement)
+
 
 (provide 'customize-personal)
-

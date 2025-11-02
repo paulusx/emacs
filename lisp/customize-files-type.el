@@ -3,29 +3,43 @@
 (require 'customize-python)
 (require 'customize-flutter)
 
+(use-package lsp-mode
+  :ensure t
+  :hook (
+          (xml-mode . lsp)
+          (python-mode . lsp-deferred)
+          (rustic-mode . lsp-deferred)
+          (c++-mode . lsp-deferred)
+          (dart-mode . lsp-deferred))
+  :init (progn
+          (setq lsp-xml-server-command '("lemminx"))
+          (setq lsp-auto-configure t)
+          )
+  :commands lsp-deferred)
 
-;; template C++
-(use-package mmm-jinja2)
+;; ;;; jinja2
+;; (use-package jinja2-mode
+;;   :ensure t
+;;   :hook (jinja2-mode . (lambda ()
+;;                    (setq-local delete-trailing-lines nil))))
+
+;; (use-package mmm-jinja2 :ensure t)
+
+;; (mmm-add-mode-ext-class nil "\\.template\\." 'jinja2)
+;; (mmm-add-mode-ext-class nil "\\.tmpl\\." 'jinja2)
 
 
-(mmm-add-mode-ext-class nil "\\.template." 'jinja2)
-(setq auto-mode-alist
-  (cons '("\\.template.cc$" . c++-mode) auto-mode-alist))
-(setq auto-mode-alist
-  (cons '("\\.jinja2.cc$" . c++-mode) auto-mode-alist))
+;; (add-hook 'find-file-hook #'my-disable-lsp-for-extensions)
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-file-watch-ignored ""))
 
 ;; capnp
 (require 'capnp-mode)
 (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
 (defun my/capnp-mode-hook ()
   ;; company-mode settings
-  (
-    (set (make-local-variable 'company-backends)
-      '(
-         (company-abbrev)
-         )
-      )
-    )
+  ()
   )
 
 (add-hook 'capnp-mode-hook 'my/capnp-mode-hook)
@@ -53,31 +67,30 @@
 (setq lsp-print-performance t)
 
 (use-package vue-mode
+  :ensure t
   :config
   ;; 0, 1, or 2, representing (respectively) none, low, and high coloring
   (setq mmm-submode-decoration-level 0))
-(use-package pug-mode)
+(use-package pug-mode
+  :ensure t )
 
 ;; TypeScript
-(use-package typescript-mode :ensure t)
+(use-package typescript-mode
+  :ensure t)
 
 ;; elisp
-(defun my/lisp-mode-hook ()
-  ;; company-mode settings
-  (set (make-local-variable 'company-backends)
-       '(
-         (company-elisp :with company-yasnippet)
-         )
-    )
-  (company-mode)
-  (eldoc-mode t)
-  )
+;; (defun my/lisp-mode-hook ()
+;;   ;; company-mode settings
+;;   (set (make-local-variable 'company-backends)
+;;        '(
+;;          (company-elisp :with company-yasnippet)
+;;          )
+;;     )
+;;   (company-mode)
+;;   (eldoc-mode t)
+;;   )
 
-(add-hook 'emacs-lisp-mode-hook 'my/lisp-mode-hook)
-
-;;; jinja2
-(use-package jinja2-mode)
-(use-package mmm-jinja2)
+;; (add-hook 'emacs-lisp-mode-hook 'my/lisp-mode-hook)
 
 
 ;; Python
@@ -98,7 +111,7 @@
   qml-mode
   :init (progn
           ;; (setq auto-mode-alist (cons '("\\.qml" . qml-mode) auto-mode-alist))
-          
+
           )
   :hook (qml-mode .
           (lambda ()
@@ -126,10 +139,13 @@
             )
 
   :bind (
-          ("s-\\" . yafolding-toggle-element)
-          ("s-;" . yafolding-toggle-all)
+          ("C-c /" . yafolding-toggle-element)
+          ("C-c ;" . yafolding-toggle-all)
           )
   )
+
+;;; XML
+
 ;;; qrc as XML
 (setq auto-mode-alist
       (cons '("\\.qrc" . xml-mode) auto-mode-alist))
@@ -225,6 +241,54 @@
                       (lsp)
                       )
           )
+  )
+
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;;; hyprland
+(add-to-list 'treesit-language-source-alist
+  '(hyprlang "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"))
+
+(use-package hyprlang-ts-mode
+  :ensure t
+  :straight (:type git :host github :repo "Nathan-Melaku/hyprlang-ts-mode"))
+
+;;; nix
+(use-package lsp-nix
+  :ensure lsp-mode
+  :after (lsp-mode)
+  :demand t
+  :custom
+  (lsp-nix-nil-formatter ["nixfmt"]))
+
+(use-package nix-mode
+  :hook (nix-mode . lsp-deferred)
+  :ensure t
+  )
+
+
+;;;
+(use-package json-mode
+  :ensure t)
+
+(use-package meson-mode
+  :ensure t
+  :hook (meson-mode . lsp)
   )
 
 (provide 'customize-files-type)

@@ -12,8 +12,8 @@
 
 (add-hook 'dart-mode-hook 'lsp)
 
-(setq gc-cons-threshold (* 100 1024 1024)
-  read-process-output-max (* 1024 1024))
+(setq gc-cons-threshold (* 1024 1024 1024)
+  read-process-output-max (* 10 1024 1024))
 
 ;; (setq lsp-dart-sdk-dir "/usr/bin/")
 ;; ;; (setq lsp-dart-sdk-dir "/")

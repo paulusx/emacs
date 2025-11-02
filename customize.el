@@ -7,20 +7,18 @@
  '(bm-buffer-persistence t)
  '(bm-cycle-all-buffers nil)
  '(bm-highlight-style 'bm-highlight-line-and-fringe)
+ '(bm-modeline-display-end-space nil)
  '(bm-modeline-display-total t)
  '(bm-modeline-display-when-empty t)
  '(bm-recenter t)
- '(bm-repository-size 1000)
+ '(bm-repository-size 10000)
  '(bm-verbosity-level 2)
  '(c++-mode-hook nil)
  '(c-backslash-column 'set-from-style)
  '(c-backslash-max-column 120)
  '(c-default-style
-    '((c-mode . "artec")
-       (c++-mode . "artec")
-       (java-mode . "java")
-       (awk-mode . "awk")
-       (other . "artec")))
+    '((c-mode . "artec") (c++-mode . "artec") (java-mode . "java")
+       (awk-mode . "awk") (other . "artec")))
  '(c-report-syntactic-errors nil)
  '(clang-format+-offset-modified-region 5)
  '(clang-format-style "file")
@@ -28,14 +26,48 @@
  '(company-auto-commit ''company-explicit-action-p)
  '(company-auto-complete ''company-explicit-action-p)
  '(company-backends
-    '(company-yasnippet company-bbdb company-nxml company-css company-clang company-cmake company-capf
-       (company-dabbrev-code company-gtags company-etags company-keywords)
+    '(company-yasnippet company-bbdb company-nxml company-css
+       company-clang company-cmake company-capf
+       (company-dabbrev-code company-gtags company-etags
+         company-keywords)
        company-oddmuse company-files company-dabbrev))
  '(company-c-headers-path-system
-    '("/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include/" "/usr/include/c++/5.2.0/" "/usr/include/" "/usr/local/include/" "/home/paulus/projects/artecsdk/ext/3dproc/include" "/home/paulus/projects/artecsdk/ext/cameras/include" "/home/paulus/projects/artecsdk/ext/config-enumerator/include" "/home/paulus/projects/artecsdk/ext/engine/include" "/home/paulus/projects/artecsdk/ext/flyuart/include" "/home/paulus/projects/artecsdk/ext/simplegl/examples/MarchingCubes/include" "/home/paulus/projects/artecsdk/ext/simplegl/examples/QtGUI/include" "/home/paulus/projects/artecsdk/ext/tunecols/include" "/home/paulus/projects/artecsdk/ext/virtualization-kit/include" "/home/paulus/projects/artecsdk/ext/3drec/include" "/home/paulus/projects/artecsdk/algorithms/include" "/home/paulus/projects/artecsdk/base/include" "/home/paulus/projects/artecsdk/base/tref-sample/include" "/home/paulus/projects/artecsdk/capturing/include" "/home/paulus/projects/artecsdk/scanning/include" "/home/paulus/projects/app-easy-scan/libs/es-core/defs" "/home/paulus/projects/lib-rendering/a3d" "/usr/include/qt"))
+    '("/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include/"
+       "/usr/include/c++/5.2.0/" "/usr/include/" "/usr/local/include/"
+       "/home/paulus/projects/artecsdk/ext/3dproc/include"
+       "/home/paulus/projects/artecsdk/ext/cameras/include"
+       "/home/paulus/projects/artecsdk/ext/config-enumerator/include"
+       "/home/paulus/projects/artecsdk/ext/engine/include"
+       "/home/paulus/projects/artecsdk/ext/flyuart/include"
+       "/home/paulus/projects/artecsdk/ext/simplegl/examples/MarchingCubes/include"
+       "/home/paulus/projects/artecsdk/ext/simplegl/examples/QtGUI/include"
+       "/home/paulus/projects/artecsdk/ext/tunecols/include"
+       "/home/paulus/projects/artecsdk/ext/virtualization-kit/include"
+       "/home/paulus/projects/artecsdk/ext/3drec/include"
+       "/home/paulus/projects/artecsdk/algorithms/include"
+       "/home/paulus/projects/artecsdk/base/include"
+       "/home/paulus/projects/artecsdk/base/tref-sample/include"
+       "/home/paulus/projects/artecsdk/capturing/include"
+       "/home/paulus/projects/artecsdk/scanning/include"
+       "/home/paulus/projects/app-easy-scan/libs/es-core/defs"
+       "/home/paulus/projects/lib-rendering/a3d" "/usr/include/qt"))
  '(company-c-headers-path-user '("."))
  '(company-clang-arguments
-    '("-std=c++14" "-I/home/paulus/projects/artecsdk/ext/3dproc/include" "-I/home/paulus/projects/artecsdk/ext/cameras/include" "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include" "-I/home/paulus/projects/artecsdk/ext/engine/include" "-I/home/paulus/projects/artecsdk/ext/flyuart/include" "-I/home/paulus/projects/artecsdk/ext/tunecols/include" "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include" "-I/home/paulus/projects/artecsdk/ext/3drec/include" "-I/home/paulus/projects/artecsdk/algorithms/include" "-I/home/paulus/projects/artecsdk/base/include" "-I/home/paulus/projects/artecsdk/base/tref-sample/include" "-I/home/paulus/projects/artecsdk/capturing/include" "-I/home/paulus/projects/artecsdk/scanning/include" "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs" "-I/home/paulus/projects/lib-rendering/a3d" "-I/usr/include/qt"))
+    '("-std=c++14" "-I/home/paulus/projects/artecsdk/ext/3dproc/include"
+       "-I/home/paulus/projects/artecsdk/ext/cameras/include"
+       "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include"
+       "-I/home/paulus/projects/artecsdk/ext/engine/include"
+       "-I/home/paulus/projects/artecsdk/ext/flyuart/include"
+       "-I/home/paulus/projects/artecsdk/ext/tunecols/include"
+       "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include"
+       "-I/home/paulus/projects/artecsdk/ext/3drec/include"
+       "-I/home/paulus/projects/artecsdk/algorithms/include"
+       "-I/home/paulus/projects/artecsdk/base/include"
+       "-I/home/paulus/projects/artecsdk/base/tref-sample/include"
+       "-I/home/paulus/projects/artecsdk/capturing/include"
+       "-I/home/paulus/projects/artecsdk/scanning/include"
+       "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs"
+       "-I/home/paulus/projects/lib-rendering/a3d" "-I/usr/include/qt"))
  '(company-completion-cancelled-hook nil)
  '(company-idle-delay 1.5)
  '(company-insertion-on-trigger ''company-explicit-action-p)
@@ -50,18 +82,53 @@
  '(compilation-always-kill t)
  '(compilation-ask-about-save nil)
  '(compilation-environment '("PATH=/usr/bin:/usr/local/bin:/opt/cuda/bin/"))
+ '(compilation-error-regexp-alist
+    '(cargo rustc-panics rustc-colon rustc rustc-refs
+       typescript-nglint-warning typescript-nglint-error
+       typescript-tslint typescript-tsc absoft ada aix ant bash
+       borland python-tracebacks-and-caml cmake cmake-info comma msft
+       edg-1 edg-2 epc ftnchek gradle-kotlin gradle-kotlin-legacy
+       gradle-android iar ibm irix java javac jikes-file maven
+       jikes-line clang-include gcc-include ruby-Test::Unit lua
+       lua-stack gmake gnu cucumber lcc makepp mips-1 mips-2 oracle
+       perl php rxp shellcheck sparc-pascal-file sparc-pascal-line
+       sparc-pascal-example sun sun-ada watcom 4bsd gcov-file
+       gcov-header gcov-nomark gcov-called-line gcov-never-called
+       perl--Pod::Checker perl--Test perl--Test2 perl--Test::Harness
+       weblint guile-file guile-line typescript-tsc-plain
+       typescript-tsc-pretty pyright-error))
  '(compilation-scroll-output 'first-error)
  '(compilation-search-path
-    '(nil "~/sshfs/projects/artecsdk/" "~/sshfs/projects/lib-rendering/" "~/sshfs/projects/app-easy-scan/" "~/mac/projects" "~/sshfs"))
+    '(nil "/home/paulus/projects/pkg-s2p/source-of-frames"
+       "/home/paulus/projects/pkg-s2p/"))
  '(compilation-skip-threshold 2)
  '(compilation-skip-visited t)
  '(compile-command
-    "cd ~/projects/ && time PATH=$PATH:$HOME/.cargo/bin:/opt/flutter/bin LANG= \\\12scons -f pkg-leeloo/utils/build/SConstruct -j9 --update-db \\\12--use-profile=leeloo/host-ext-qml \\\12--scan-dir=pkg-leeloo \\\12--module=leeloo")
+    "cd ~/projects/ && time PATH=$PATH:$HOME/.cargo/bin:/opt/flutter-elinux/bin LANG= \\\12scons -f pkg-s2p/build-system/SConstruct -j9 --update-db \\\12--use-profile=spider2-pro/s2p-host \\\12--scan-dir=pkg-s2p --skip-dir=/home/paulus/projects/pkg-s2p/third-party/cdsdk/build-system/tests \\\12--module=source-of-frames-example")
  '(cursor-in-non-selected-windows nil)
  '(custom-safe-themes
-    '("4ef489bd19f06c4784ad0a440b8dfe5ee32c761ccfa134830df119005feddf47" "c55b811819ce5868f43176bcbc23f8b569e495e1dd0f180beeba571649b9730b" "f364e75cdd1f0e6e6cf9db5c815712e28edb0f534909b13c95388d7f501ab0e0" "02ec9b95275c0f6b5d050c27017beacf55e6b69607759872271df070e573ceff" "b8035e71f1cfba8c9b35931c2e4953aa40aa998747a3a198480934b694ec3e94" "a51245cbca613c943213aceb3fbb638276b68ca37b9dbf08ddf422570bf88c2e" "e37044eff1939059a930158c43b3b2812a85f5104426ed619252bec773ac8cb9" "3aa586d937fc99992cd44d7d4aab284eeaf7323898e37e152d37ebc298229ebc" "55106d426099242e38daa86deabadb643313fbd84517326d2bfc48ab4d86458f" "0de269f129b765c9fe244c19c1ec9dfd6c66cee4179eb235aff1d3301e2121e0" "3d530d6dcdf26b4b2b68c18bfa8d8f927377a12cb75abf8768e0b818a19f782e" "cc371ea0ca0f879b99710b62dd3c9943fcc1c274efe45e9d2c578f9f93253930" "3c6e8fb18f82d2c4cf242c2e536b75eecd67257f95e73d618f98f0502fc81578" "165c7115443aabcc950ef1514a5c238c1b78cb743dc6df4f41a82a2d6e66c683" "5e6a55507bc922241a1fa50f095f15996493ef6d11c648fd7122ca83a577d717" "4b177ef60e53808453134546ff74656b2ded2bf7068a78467995255921b2ac5e" "31c7386bea6f51a5b799d8f456e08fc6dee5f59605c165562fc7c32a323b7f42" default))
+    '("4ef489bd19f06c4784ad0a440b8dfe5ee32c761ccfa134830df119005feddf47"
+       "c55b811819ce5868f43176bcbc23f8b569e495e1dd0f180beeba571649b9730b"
+       "f364e75cdd1f0e6e6cf9db5c815712e28edb0f534909b13c95388d7f501ab0e0"
+       "02ec9b95275c0f6b5d050c27017beacf55e6b69607759872271df070e573ceff"
+       "b8035e71f1cfba8c9b35931c2e4953aa40aa998747a3a198480934b694ec3e94"
+       "a51245cbca613c943213aceb3fbb638276b68ca37b9dbf08ddf422570bf88c2e"
+       "e37044eff1939059a930158c43b3b2812a85f5104426ed619252bec773ac8cb9"
+       "3aa586d937fc99992cd44d7d4aab284eeaf7323898e37e152d37ebc298229ebc"
+       "55106d426099242e38daa86deabadb643313fbd84517326d2bfc48ab4d86458f"
+       "0de269f129b765c9fe244c19c1ec9dfd6c66cee4179eb235aff1d3301e2121e0"
+       "3d530d6dcdf26b4b2b68c18bfa8d8f927377a12cb75abf8768e0b818a19f782e"
+       "cc371ea0ca0f879b99710b62dd3c9943fcc1c274efe45e9d2c578f9f93253930"
+       "3c6e8fb18f82d2c4cf242c2e536b75eecd67257f95e73d618f98f0502fc81578"
+       "165c7115443aabcc950ef1514a5c238c1b78cb743dc6df4f41a82a2d6e66c683"
+       "5e6a55507bc922241a1fa50f095f15996493ef6d11c648fd7122ca83a577d717"
+       "4b177ef60e53808453134546ff74656b2ded2bf7068a78467995255921b2ac5e"
+       "31c7386bea6f51a5b799d8f456e08fc6dee5f59605c165562fc7c32a323b7f42"
+       default))
  '(desktop-clear-preserve-buffers
-    '("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*rustic-compilation\\*" "\\*lsp-log\\*" "\\*rls\\*" "\\*rls::stderr\\*" "\\*lsp-log:.+\\*"))
+    '("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*"
+       "\\*Warnings\\*" "\\*rustic-compilation\\*" "\\*lsp-log\\*"
+       "\\*rls\\*" "\\*rls::stderr\\*" "\\*lsp-log:.+\\*"))
  '(desktop-load-locked-desktop t)
  '(desktop-path '("~/.emacs.d/"))
  '(desktop-save t)
@@ -74,6 +141,8 @@
  '(flycheck-buffer-switch-check-intermediate-buffers nil)
  '(flycheck-check-syntax-automatically
     '(save idle-change idle-buffer-switch new-line mode-enabled))
+ '(flycheck-checker-error-threshold 4096)
+ '(flyspell-abbrev-p t)
  '(flyspell-before-incorrect-word-string nil)
  '(flyspell-default-dictionary nil)
  '(flyspell-sort-corrections t)
@@ -81,17 +150,33 @@
  '(global-semantic-highlight-func-mode nil)
  '(global-semantic-mru-bookmark-mode t)
  '(global-semantic-stickyfunc-mode t)
+ '(global-whitespace-mode nil)
  '(graphviz-dot-preview-extension "svg")
  '(graphviz-dot-view-command "doted -Tsvg %s")
  '(graphviz-dot-view-edit-command t)
  '(grep-find-command
-    '("find . -type f -not -name \"*~\" -exec grep --color=auto -nH --null -e  \\{\\} +" . 54))
+    '("find . -type f -not -name \"*~\" -exec grep --color=auto -nH --null -e  \\{\\} +"
+       . 54))
  '(groovy-indent-offset 4)
  '(hide-ifdef-initially t)
  '(hide-ifdef-shadow t)
  '(indent-tabs-mode nil)
  '(irony-additional-clang-options
-    '("-std=c++14" "-I/home/paulus/projects/artecsdk/ext/3dproc/include" "-I/home/paulus/projects/artecsdk/ext/cameras/include" "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include" "-I/home/paulus/projects/artecsdk/ext/engine/include" "-I/home/paulus/projects/artecsdk/ext/flyuart/include" "-I/home/paulus/projects/artecsdk/ext/tunecols/include" "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include" "-I/home/paulus/projects/artecsdk/ext/3drec/include" "-I/home/paulus/projects/artecsdk/algorithms/include" "-I/home/paulus/projects/artecsdk/base/include" "-I/home/paulus/projects/artecsdk/base/tref-sample/include" "-I/home/paulus/projects/artecsdk/capturing/include" "-I/home/paulus/projects/artecsdk/scanning/include" "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs" "-I/home/paulus/projects/lib-rendering/a3d" "-I/usr/include/qt"))
+    '("-std=c++14" "-I/home/paulus/projects/artecsdk/ext/3dproc/include"
+       "-I/home/paulus/projects/artecsdk/ext/cameras/include"
+       "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include"
+       "-I/home/paulus/projects/artecsdk/ext/engine/include"
+       "-I/home/paulus/projects/artecsdk/ext/flyuart/include"
+       "-I/home/paulus/projects/artecsdk/ext/tunecols/include"
+       "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include"
+       "-I/home/paulus/projects/artecsdk/ext/3drec/include"
+       "-I/home/paulus/projects/artecsdk/algorithms/include"
+       "-I/home/paulus/projects/artecsdk/base/include"
+       "-I/home/paulus/projects/artecsdk/base/tref-sample/include"
+       "-I/home/paulus/projects/artecsdk/capturing/include"
+       "-I/home/paulus/projects/artecsdk/scanning/include"
+       "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs"
+       "-I/home/paulus/projects/lib-rendering/a3d" "-I/usr/include/qt"))
  '(jenkins-api-url
     "http://jenkins.artec-local:8080/job/Artec%203D%20Scanning%20SDK%20For%20Linux%20%28fast-build%29/api/xml")
  '(jenkins-login-url nil)
@@ -105,7 +190,8 @@
     "https://github.com/clangd/clangd/releases/download/15.0.0/clangd-linux-15.0.0.zip")
  '(lsp-clangd-version "16.0.0")
  '(lsp-clients-clangd-args
-    '("--header-insertion-decorators=0" "--clang-tidy" "--pch-storage=disk" "-j=4"))
+    '("--header-insertion-decorators=0" "--clang-tidy"
+       "--pch-storage=disk" "-j=4"))
  '(lsp-dart-closing-labels-prefix "←")
  '(lsp-dart-closing-labels-size 0.8)
  '(lsp-dart-dap-debugger-path "")
@@ -123,21 +209,33 @@
  '(lsp-pylsp-plugins-flake8-exclude [])
  '(lsp-pylsp-plugins-flake8-filename [])
  '(lsp-pylsp-plugins-flake8-ignore ["D100" "D101" "D107"])
+ '(lsp-pyright-extra-paths
+    ["/home/paulus/projects/pkg-leopard/modules/python-common/rootfs-data/usr/local/bin"])
+ '(lsp-pyright-langserver-command "basedpyright")
+ '(lsp-ui-doc-alignment 'window)
  '(lsp-ui-doc-border "black")
- '(lsp-ui-doc-enable nil)
+ '(lsp-ui-doc-enable t)
  '(lsp-ui-doc-header nil)
  '(lsp-ui-doc-include-signature t)
  '(lsp-ui-doc-max-height 50)
  '(lsp-ui-doc-max-width 100)
  '(lsp-ui-doc-position 'bottom)
- '(lsp-ui-doc-use-webkit nil)
+ '(lsp-ui-doc-show-with-mouse nil)
+ '(lsp-ui-doc-use-webkit t)
  '(lsp-ui-flycheck-enable t)
- '(lsp-ui-flycheck-list-position 'right)
+ '(lsp-ui-flycheck-list-position 'bottom)
+ '(lsp-ui-imenu-window-fix-width t)
+ '(lsp-ui-sideline-actions-icon nil)
  '(lsp-ui-sideline-delay 2.0)
+ '(lsp-ui-sideline-diagnostic-max-line-length 100)
+ '(lsp-ui-sideline-diagnostic-max-lines 6)
  '(lsp-ui-sideline-enable t)
  '(lsp-ui-sideline-ignore-duplicate t)
+ '(lsp-ui-sideline-show-code-actions t)
+ '(lsp-ui-sideline-show-hover t)
  '(lsp-ui-sideline-show-symbol t)
- '(lsp-ui-sideline-update-mode 'line)
+ '(lsp-ui-sideline-update-mode 'point)
+ '(lsp-ui-sideline-wait-for-all-symbols nil)
  '(minimap-always-recenter t)
  '(mmm-submode-decoration-level 0)
  '(mode-line-compact 'long)
@@ -148,46 +246,71 @@
     "\\documentclass{article}\12\\usepackage[usenames]{color}\12\12[DEFAULT-PACKAGES]\12[PACKAGES]\12\\pagestyle{empty}             % do not remove\12% The settings below are copied from fullpage.sty\12\\setlength{\\textwidth}{\\paperwidth}\12\\addtolength{\\textwidth}{-3cm}\12\\setlength{\\oddsidemargin}{1.5cm}\12\\addtolength{\\oddsidemargin}{-2.54cm}\12\\setlength{\\evensidemargin}{\\oddsidemargin}\12\\setlength{\\textheight}{\\paperheight}\12\\addtolength{\\textheight}{-\\headheight}\12\\addtolength{\\textheight}{-\\headsep}\12\\addtolength{\\textheight}{-\\footskip}\12\\addtolength{\\textheight}{-3cm}\12\\setlength{\\topmargin}{1.5cm}\12\\addtolength{\\topmargin}{-2.54cm}")
  '(org-insert-heading-respect-content nil)
  '(org-latex-default-packages-alist
-    '(("utf8" "inputenc" t
-        ("pdflatex"))
-       ("" "graphicx" t nil)
-       ("" "longtable" nil nil)
-       ("" "wrapfig" nil nil)
-       ("" "rotating" nil nil)
-       ("normalem" "ulem" t nil)
-       ("" "amsmath" t nil)
-       ("" "amssymb" t nil)
-       ("" "capt-of" nil nil)
-       ("" "hyperref" nil nil)))
+    '(("utf8" "inputenc" t ("pdflatex")) ("" "graphicx" t nil)
+       ("" "longtable" nil nil) ("" "wrapfig" nil nil)
+       ("" "rotating" nil nil) ("normalem" "ulem" t nil)
+       ("" "amsmath" t nil) ("" "amssymb" t nil)
+       ("" "capt-of" nil nil) ("" "hyperref" nil nil)))
  '(org-latex-inputenc-alist '(("utf8" . "utf8x")))
  '(org-modules
-    '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe org-mouse ol-rmail org-tempo ol-w3m))
+    '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc
+       ol-mhe org-mouse ol-rmail org-tempo ol-w3m))
  '(package-selected-packages
-    '(flutter-l10n-flycheck flutter dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company lsp-ui company hover))
+    '(straight dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company
+       lsp-ui company hover))
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-indent-level 4)
  '(plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
  '(plantuml-server-url "http://localhost:9999/uml/")
  '(project-vc-ignores '("~/projecs/*"))
  '(pug-tab-width 2)
+ '(python-shell-extra-pythonpaths
+    '("/home/paulus/projects/pkg-leopard/modules/python-common/rootfs-data/usr/local/bin"))
  '(python-shell-interpreter "python3")
  '(ring-bell-function 'ignore)
  '(rust-format-on-save nil)
  '(rust-indent-method-chain t)
  '(rustic-always-locate-project-on-open t)
+ '(rustic-cargo-auto-add-missing-dependencies t)
+ '(rustic-cargo-build-arguments "")
+ '(rustic-cargo-build-exec-command "build")
  '(rustic-cargo-clippy-trigger-fix nil)
+ '(rustic-compile-command "cargo build")
  '(rustic-lsp-format t)
  '(rustic-lsp-server 'rust-analyzer)
+ '(rustic-rustfmt-args "+nightly ")
  '(safe-local-variable-values
-    '((company-clang-arguments "-I/home/paulus/projects/artecsdk/ext/3dproc/include" "-I/home/paulus/projects/artecsdk/ext/cameras/include" "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include" "-I/home/paulus/projects/artecsdk/ext/engine/include" "-I/home/paulus/projects/artecsdk/ext/flyuart/include" "-I/home/paulus/projects/artecsdk/ext/tunecols/include" "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include" "-I/home/paulus/projects/artecsdk/ext/3drec/include" "-I/home/paulus/projects/artecsdk/algorithms/include" "-I/home/paulus/projects/artecsdk/base/include" "-I/home/paulus/projects/artecsdk/base/tref-sample/include" "-I/home/paulus/projects/artecsdk/capturing/include" "-I/home/paulus/projects/artecsdk/scanning/include" "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs" "-I /home/paulus/projects/lib-rendering/a3d")))
+    '((eval progn (flycheck-mode -1) (lsp-mode 0))
+       (eval progn (flycheck-mode 0) (lsp-mode 0))
+       (eval progn (lsp-mode 0) (flycheck-mode 0))
+       (company-clang-arguments
+         "-I/home/paulus/projects/artecsdk/ext/3dproc/include"
+         "-I/home/paulus/projects/artecsdk/ext/cameras/include"
+         "-I/home/paulus/projects/artecsdk/ext/config-enumerator/include"
+         "-I/home/paulus/projects/artecsdk/ext/engine/include"
+         "-I/home/paulus/projects/artecsdk/ext/flyuart/include"
+         "-I/home/paulus/projects/artecsdk/ext/tunecols/include"
+         "-I/home/paulus/projects/artecsdk/ext/virtualization-kit/include"
+         "-I/home/paulus/projects/artecsdk/ext/3drec/include"
+         "-I/home/paulus/projects/artecsdk/algorithms/include"
+         "-I/home/paulus/projects/artecsdk/base/include"
+         "-I/home/paulus/projects/artecsdk/base/tref-sample/include"
+         "-I/home/paulus/projects/artecsdk/capturing/include"
+         "-I/home/paulus/projects/artecsdk/scanning/include"
+         "-I/home/paulus/projects/app-easy-scan/libs/es-core/defs"
+         "-I /home/paulus/projects/lib-rendering/a3d")))
  '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(semantic-mode nil)
  '(semantic-python-dependency-system-include-path
-    '("/usr/lib/python3.5" "/usr/lib/python3.5/plat-linux" "/usr/lib/python3.5/lib-dynload" "/usr/lib/python3.5/site-packages" "/usr/lib/python2.7" "/usr/lib/python2.7/site-packages"))
+    '("/usr/lib/python3.5" "/usr/lib/python3.5/plat-linux"
+       "/usr/lib/python3.5/lib-dynload"
+       "/usr/lib/python3.5/site-packages" "/usr/lib/python2.7"
+       "/usr/lib/python2.7/site-packages"))
  '(semanticdb-ebrowse-file-match "\\.\\(hh?\\|HH?\\|hpp\\|h\\)")
  '(semanticdb-project-roots
-    '("~/projects/artecsdk" "~/projects/app-easy-scan" "~/projects/lib-rendering"))
+    '("~/projects/artecsdk" "~/projects/app-easy-scan"
+       "~/projects/lib-rendering"))
  '(semanticdb-save-database-functions nil)
  '(senator-highlight-found t)
  '(server-host "localhost")
@@ -199,6 +322,13 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(web-mode-css-indent-offset 2)
+ '(whitespace-global-modes t)
+ '(whitespace-line-column 100)
+ '(whitespace-style
+    '(face trailing tabs spaces lines newline missing-newline-at-eof empty
+       indentation big-indent space-after-tab space-before-tab
+       space-mark tab-mark newline-mark))
+ '(ws-butler-global-mode t)
  '(yaml-indent-offset 2)
  '(yas-choose-keys-first t)
  '(yas-snippet-dirs '(yasnippet-snippets-dir "/home/paulus/.emacs.d/snippets"))
@@ -215,8 +345,8 @@
  '(blamer-face ((t (:inherit font-lock-variable-name-face :slant normal :weight regular :height 0.8 :width normal :foundry "unknown" :family "monofur"))))
  '(blamer-pretty-commit-message-face ((t (:inherit font-lock-string-face :slant normal :height 0.8))))
  '(bm-face ((t (:overline "dark green"))))
- '(bm-fringe-persistent-face ((t (:background "gray96" :foreground "dim gray"))))
- '(bm-persistent-face ((t (:background "gray97"))))
+ '(bm-fringe-persistent-face ((t (:foreground "deep sky blue"))))
+ '(bm-persistent-face ((t (:background "#f0fcfe"))))
  '(company-tooltip ((t (:background "azure" :foreground "black"))))
  '(flycheck-error ((t (:background "LavenderBlush1"))))
  '(flycheck-error-list-highlight ((t (:background "azure"))))
@@ -234,13 +364,14 @@
  '(js2-external-variable ((t (:foreground "dark red"))))
  '(js2-object-property ((t (:inherit default :foreground "navy"))))
  '(lsp-dart-code-lens-separator ((t (:height 0.6))))
+ '(lsp-dart-test-tree-error-face ((t (:inherit error :height 1.0))))
  '(lsp-face-highlight-read ((t (:background "#eeffcc"))))
  '(lsp-flycheck-warning-unnecessary-face ((t (:foreground "gray" :underline "aquamarine"))) t)
  '(lsp-ui-doc-background ((t (:background "azure1"))))
- '(lsp-ui-sideline-code-action ((t (:foreground "tomato"))))
- '(lsp-ui-sideline-current-symbol ((t (:background "light cyan" :foreground "black" :box (:line-width -1 :color "deep sky blue") :weight ultra-bold :height 0.8))))
- '(lsp-ui-sideline-global ((t (:foreground "dark gray" :height 0.9))))
- '(lsp-ui-sideline-symbol ((t (:foreground "grey" :box (:line-width -1 :color "#aacccc") :height 0.8))))
+ '(lsp-ui-sideline-code-action ((t (:foreground "dark red"))))
+ '(lsp-ui-sideline-current-symbol ((t (:foreground "black"))))
+ '(lsp-ui-sideline-global ((t (:foreground "orange" :height 1.0))))
+ '(lsp-ui-sideline-symbol ((t (:inherit default :foreground "gray"))))
  '(lsp-ui-sideline-symbol-info ((t (:slant italic :height 0.9))))
  '(minibuffer-prompt ((t (:background "light cyan" :foreground "#0072b2"))))
  '(mmm-default-submode-face ((t nil)))
@@ -273,5 +404,13 @@
  '(semantic-tag-boundary-face ((t (:distant-foreground "spring green" :overline "white smoke"))))
  '(sml/filename ((t (:inherit sml/global :foreground "gray8" :weight normal))))
  '(sml/name-filling ((t (:inherit sml/position-percentage))))
+ '(syncthing-count-local-files ((t (:foreground "dim gray"))))
+ '(syncthing-count-local-folders ((t (:foreground "dark orange"))))
+ '(syncthing-progress-0 ((t (:foreground "firebrick"))))
+ '(syncthing-progress-25 ((t (:foreground "red"))))
+ '(syncthing-progress-50 ((t (:foreground "dark orange"))))
+ '(syncthing-progress-75 ((t (:foreground "green3"))))
  '(table-cell ((t (:background "white smoke"))))
+ '(whitespace-newline ((t (:foreground "white smoke" :weight normal))))
+ '(whitespace-space ((t (:foreground "light gray"))))
  '(window-divider ((t (:foreground "gray60")))))
