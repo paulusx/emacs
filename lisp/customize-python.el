@@ -43,7 +43,8 @@
   :ensure t
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
-                          (lsp))))
+                         (lsp)))
+  )
 
 ;; (add-to-list 'compilation-error-regexp-alist 'my-python-typechecker)
 ;; (add-to-list 'compilation-error-regexp-alist-alist

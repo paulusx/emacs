@@ -75,9 +75,9 @@
 
 (setenv "ARTEC_BS_CDSDK_WRAPPER_HEADERS_DIR" "/home/paulus/projects/pkg-s2p/third-party/cdsdk/cdsdk_wrapper")
 (setenv "ARTEC_BS_CDSDK_WRAPPER_HEADERS" "/home/paulus/projects/pkg-s2p/third-party/cdsdk/cdsdk_wrapper/cdsdk.h")
-(setenv "ARTEC_BS_CDSDK_WRAPPER_LIB_DIR" "/home/paulus/projects/output/s2p-host/lib")
-(setenv "ARTEC_BS_CDSDK_WRAPPER_LIB" "cdsdk")
-(setenv "ARTEC_BS_CDSDK_WRAPPER_ADDITIONAL_LIBS" "pugixml:udev:b64")
+(setenv "ARTEC_BS_CDSDK_LIB_DIR" "/home/paulus/projects/output/s2p-host/lib")
+(setenv "ARTEC_BS_CDSDK_LIB" "cdsdk")
+(setenv "ARTEC_BS_CDSDK_ADDITIONAL_LIBS" "pugixml:udev:b64")
 ;;; (setenv "" "")
 
 

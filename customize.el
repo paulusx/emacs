@@ -104,7 +104,7 @@
  '(compilation-skip-threshold 2)
  '(compilation-skip-visited t)
  '(compile-command
-    "cd ~/projects/ && time PATH=$PATH:$HOME/.cargo/bin:/opt/flutter-elinux/bin LANG= \\\12scons -f pkg-s2p/build-system/SConstruct -j9 --update-db \\\12--use-profile=spider2-pro/s2p-host \\\12--scan-dir=pkg-s2p --skip-dir=/home/paulus/projects/pkg-s2p/third-party/cdsdk/build-system/tests \\\12--module=source-of-frames-example")
+    "cd ~/projects/ && time PATH=$PATH:$HOME/.cargo/bin:/opt/flutter-elinux/bin LANG= \\\12scons -f pkg-s2p/build-system/SConstruct -j9 --update-db \\\12--use-profile=spider2-pro/s2p-host \\\12--scan-dir=pkg-s2p --skip-dir=/home/paulus/projects/pkg-s2p/third-party/cdsdk/build-system/tests \\\12--module=s2p --module=s2p-dev-util")
  '(cursor-in-non-selected-windows nil)
  '(custom-safe-themes
     '("4ef489bd19f06c4784ad0a440b8dfe5ee32c761ccfa134830df119005feddf47"
@@ -321,6 +321,9 @@
  '(syncthing-default-server-token "Jkcm2fnTDGEFfeWCLodEYTJNSqLUvUnX")
  '(tab-width 4)
  '(tool-bar-mode nil)
+ '(treemacs-indicate-top-scroll-mode nil)
+ '(treemacs-silent-filewatch t)
+ '(treemacs-silent-refresh t)
  '(web-mode-css-indent-offset 2)
  '(whitespace-global-modes t)
  '(whitespace-line-column 100)
@@ -400,6 +403,7 @@
  '(rust-string-interpolation ((t (:inherit font-lock-string-face :slant italic :weight semi-bold))))
  '(rust-unsafe ((t (:inherit font-lock-warning-face :background "red" :distant-foreground "black" :foreground "white" :box (:line-width (2 . 2) :color "red" :style flat-button)))))
  '(rust-unsafe-face ((t (:inherit font-lock-warning-face))) t)
+ '(rustic-compilation-info ((t (:inherit default))))
  '(semantic-highlight-func-current-tag-face ((t (:overline "deep sky blue"))))
  '(semantic-tag-boundary-face ((t (:distant-foreground "spring green" :overline "white smoke"))))
  '(sml/filename ((t (:inherit sml/global :foreground "gray8" :weight normal))))

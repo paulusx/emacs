@@ -49,6 +49,23 @@
           )
   )
 
+(use-package treemacs
+  :ensure t
+  :config
+  (with-eval-after-load 'treemacs
+    (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-close-treemacs)
+    (treemacs-define-RET-action 'file-node-open #'treemacs-visit-node-close-treemacs))
+  :bind (("C-c t" . treemacs) ("<f9>" . treemacs)))
+
+;; (use-package treemacs
+;;   :ensure
+;;   :defer t
+;;   :config ( defun my/treemacs-quit-after-open () (treemacs))
+;;   (add-hook 'treemacs-select-action-hook #'my/treemacs-quit-after-open)
+;;   (message "Hello!")
+;;   :bind (("C-c t" . treemacs))
+;;   )
+
 
 (defun move-line (n)
   "Move the current line up or down by N lines."
@@ -168,7 +185,33 @@ Operate on selected region on whole buffer."
 
 (add-hook 'prog-mode-hook 'my-prog-hook)
 
-(use-package ement)
+(use-package devcontainer
+  :straight (devcontainer :type git :host github :repo "johannes-mueller/devcontainer.el"))
+
+
+(defun sn/start-my-project-devcontainer ()
+   "Close my-project buffers, start the dev container, and open Dired and Magit."
+   (interactive)
+   ;; Close all buffers in ~/src/my-project/
+   (dolist (buffer (buffer-list))
+     (when (string-prefix-p (expand-file-name "~/src/my-project/") (or (buffer-file-name buffer) ""))
+       (kill-buffer buffer)))
+   ;; Set default directory and run the dev container command
+   (let* ((default-directory (expand-file-name "~/src/my-project/"))
+          (output-buffer "*Start Dev-Container Output*")
+          (result (call-process-shell-command "devcontainer up --workspace-folder ." nil output-buffer t)))
+     (if (= result 0)
+         (progn
+           (message "Dev container started successfully.")
+           ;; Open Dired and Magit only if the container starts successfully
+           (dired "/docker:dev-container:/workspace/")
+           (magit-status))
+       (message "Error: Command failed. Check %s for details." output-buffer))))
+
+
+(use-package ement
+    :ensure t
+)
 
 
 (provide 'customize-personal)
