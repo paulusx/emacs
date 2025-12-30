@@ -264,9 +264,9 @@
 ;; (add-to-list 'treesit-language-source-alist
 ;;   '(hyprlang "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"))
 
-(use-package hyprlang-ts-mode
-  :ensure t
-)
+;; (use-package hyprlang-ts-mode
+;;   :ensure t
+;; )
 
 ;; :straight (:type git :host github :repo "Nathan-Melaku/hyprlang-ts-mode")
 
@@ -283,6 +283,10 @@
   :ensure t
   )
 
+;;; bitbake
+(use-package bitbake
+  :ensure t
+  )
 
 ;;;
 (use-package json-mode
