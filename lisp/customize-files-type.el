@@ -260,13 +260,15 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;;; hyprland
-(add-to-list 'treesit-language-source-alist
-  '(hyprlang "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"))
+;; ;;; hyprland
+;; (add-to-list 'treesit-language-source-alist
+;;   '(hyprlang "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"))
 
 (use-package hyprlang-ts-mode
   :ensure t
-  :straight (:type git :host github :repo "Nathan-Melaku/hyprlang-ts-mode"))
+)
+
+;; :straight (:type git :host github :repo "Nathan-Melaku/hyprlang-ts-mode")
 
 ;;; nix
 (use-package lsp-nix

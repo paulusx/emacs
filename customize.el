@@ -313,9 +313,9 @@
        "~/projects/lib-rendering"))
  '(semanticdb-save-database-functions nil)
  '(senator-highlight-found t)
- '(server-host "localhost")
- '(server-mode t)
- '(server-use-tcp t)
+ ;; '(server-host "localhost")
+ ;; '(server-mode t)
+ ;; '(server-use-tcp t)
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(syncthing-default-server-token "Jkcm2fnTDGEFfeWCLodEYTJNSqLUvUnX")
@@ -344,7 +344,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "white" :foreground "gray15" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 110 :width normal :foundry "unknown" :family "monofur"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "white" :foreground "gray15" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 110 :width normal :foundry "unknown" :family "Monofur Nerd Font"))))
  '(blamer-face ((t (:inherit font-lock-variable-name-face :slant normal :weight regular :height 0.8 :width normal :foundry "unknown" :family "monofur"))))
  '(blamer-pretty-commit-message-face ((t (:inherit font-lock-string-face :slant normal :height 0.8))))
  '(bm-face ((t (:overline "dark green"))))
