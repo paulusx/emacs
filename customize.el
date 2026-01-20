@@ -81,7 +81,7 @@
  '(company-ycmd-enable-fuzzy-matching nil)
  '(compilation-always-kill t)
  '(compilation-ask-about-save nil)
- '(compilation-environment '("PATH=/usr/bin:/usr/local/bin:/opt/cuda/bin/"))
+ '(compilation-environment '("PATH=/run/wrappers/bin:/home/paulus/.nix-profile/bin:/home/paulus/.local/state/nix/profile/bin:/home/paulus/.local/state/nix/profile/bin:/etc/profiles/per-user/paulus/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"))
  '(compilation-error-regexp-alist
     '(cargo rustc-panics rustc-colon rustc rustc-refs
        typescript-nglint-warning typescript-nglint-error

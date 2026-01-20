@@ -1,7 +1,9 @@
 (setq exec-path (append exec-path
-                  '("~/.cargo/bin" "/opt/cuda/bin" "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/" "/opt/flutter-elinux/bin")))
+                  '("/run/wrappers/bin" "/home/paulus/.nix-profile/bin" "/home/paulus/.local/state/nix/profile/bin" "/home/paulus/.local/state/nix/profile/bin" "/etc/profiles/per-user/paulus/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin")))
 
-(setenv "RUST_SRC_PATH" "/home/paulus/projects/rust/src")
+(setenv "PATH" "/run/wrappers/bin:/home/paulus/.nix-profile/bin:/home/paulus/.local/state/nix/profile/bin:/home/paulus/.local/state/nix/profile/bin:/etc/profiles/per-user/paulus/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin")
+
+;;; (setenv "RUST_SRC_PATH" "/home/paulus/projects/rust/src")
 (setenv "ARCH_AARCH64_COMPONENTS_ROOT" "/home/paulus/.toolctl/toolchains/current/aarch64-cross")
 (setenv "LEELOO_MAIN_QML" "/home/paulus/projects/pkg-leeloo/modules/ui/source/qml/Main.qml")
 (setenv "LEELOO_MAIN_WINDOW_QML" "/home/paulus/projects/pkg-leeloo/modules/ui/source/qml/MainWindow.qml")

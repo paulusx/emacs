@@ -293,4 +293,8 @@
   :hook (meson-mode . lsp)
   )
 
+(use-package bitbake
+  :ensure t)
+
+
 (provide 'customize-files-type)
