@@ -2,6 +2,8 @@
 (require 'customize-common-c)
 (require 'customize-python)
 (require 'customize-flutter)
+(require 'customize-ai)
+
 
 (use-package lsp-mode
   :ensure t
